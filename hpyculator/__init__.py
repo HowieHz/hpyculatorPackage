@@ -13,7 +13,8 @@ def flush(filename) -> None:
     filename.flush()
 
 def output(self,anything,end="\n") -> None:
-    wx.CallAfter(outPutToOutPut,self,str(anything)+end)
+    #wx.CallAfter(outPutToOutPut,self,str(anything)+end)
+    self.output.AppendText(str(anything) + end)
 
 def outPutToOutPut(self,msg:str) -> None:
     self.output.AppendText(msg)

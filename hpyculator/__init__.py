@@ -1,4 +1,4 @@
-import wx
+# from Signal import main_window_signal
 
 name = "hpyculator"
 
@@ -12,18 +12,35 @@ def write_without_flush(filename,anything,end="\n") -> None:
 def flush(filename) -> None:
     filename.flush()
 
-def output(self,anything,end="\n") -> None:
-    #wx.CallAfter(outPutToOutPut,self,str(anything)+end)
-    self.output.AppendText(str(anything) + end)
+def output(self,anything) -> None:
+    self.main_window_signal.appendOutPutBox.emit(str(anything))
 
-def outPutToOutPut(self,msg:str) -> None:
-    self.output.AppendText(msg)
+def outputNotEnd(self,msg:str) -> None:
+    self.main_window_signal.appendOutPutBox.emit(msg)
 
-def clearOutPut(self) -> None:
-    self.output.Clear()
+def clearOutput(self) -> None:
+    self.main_window_signal.clearOutPutBox.emit()
 
-def setOutPut(self, msg:str) -> None:
-    self.output.SetValue(msg)
+def setOutput(self, msg:str) -> None:
+    self.main_window_signal.setOutPutBox.emit(msg)
 
 def addOne(num:int) -> int:
     return num+1
+
+# def band():
+#     main_window_signal.appendOutPutBox.connect(appendOutPut)
+
+#     main_window_signal.setOutPutBox.connect(setOutPut)
+
+#     main_window_signal.clearOutPutBox.connect(clearOutPut)
+
+# def appendOutPut(self, msg:str):
+#     self.ui.output_box.appendPlainText(msg)
+
+# def clearOutPut(self):
+#     self.ui.output_box.clear()
+
+# def setOutPut(self, msg:str):
+#     self.ui.output_box.setPlainText(msg)
+
+# band()

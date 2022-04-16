@@ -7,7 +7,7 @@ with open("README.md", "r") as fh:
 setup(
     # 以下为必需参数
     name='hpyculator',
-    version='1.1.0',
+    version='1.1.1',
     description='这是一个基于python的可编程计算器',
     packages=find_packages(),
     include_package_data=True,
@@ -26,7 +26,7 @@ setup(
 
     ],
     install_requires=[
-        'wxpython'
+        'pyside6'
     ],
         project_urls={
         'Bug Reports': 'https://github.com/HowieHz/hpyculatorPackage/issues',

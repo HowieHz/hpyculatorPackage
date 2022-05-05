@@ -2,29 +2,67 @@
 
 name = "hpyculator"
 
-def write(filename,anything,end="\n") -> None:
-    filename.write(str(anything)+end)
-    filename.flush()
+def write(io_instance,anything,end="\n") -> None:
+    """
+    用于向指定的文件流写入，每次写入之后立即刷新缓存区（立即写入硬盘）
+    :param io_instance: 打开的可写文件流对象
+    :param anything: 要写入的东西
+    :param end: 每次写入在末尾追加的东西，默认为换行符
+    :return: None
+    """
+    io_instance.write(str(anything)+end)
+    io_instance.flush()
 
-def write_without_flush(filename,anything,end="\n") -> None:
-    filename.write(str(anything)+end)
+def write_without_flush(io_instance,anything,end="\n") -> None:
+    """
+    用于向指定的文件流写入，每次写入之后不刷新缓存区，需要手动刷新（使用flush函数）
+    :param io_instance: 打开的可写文件流对象
+    :param anything: 要写入的东西
+    :param end: 每次写入在末尾追加的东西，默认为换行符
+    :return: None
+    """
+    io_instance.write(str(anything)+end)
 
-def flush(filename) -> None:
-    filename.flush()
+def flush(io_instance) -> None:
+    """
+    用于刷新缓存区（将缓存区中的数据写入硬盘）
+    :param io_instance: 打开的可写文件流对象
+    :return: None
+    """
+    io_instance.flush()
 
-def output(self,anything) -> None:
-    self.main_window_signal.appendOutPutBox.emit(str(anything))
+def output(instance,anything) -> None:
+    """
+    输出到框体
+    :param instance: 主程序实例
+    :param anything: 要输出到框体的数据
+    :return: None
+    """
+    instance.main_window_signal.appendOutPutBox.emit(str(anything))
 
-def outputNotEnd(self,msg:str) -> None:
-    self.main_window_signal.appendOutPutBox.emit(msg)
+def clearOutput(instance) -> None:
+    """
+    清空输出框
+    :param instance: 主程序实例
+    :return: None
+    """
+    instance.main_window_signal.clearOutPutBox.emit()
 
-def clearOutput(self) -> None:
-    self.main_window_signal.clearOutPutBox.emit()
-
-def setOutput(self, msg:str) -> None:
-    self.main_window_signal.setOutPutBox.emit(msg)
+def setOutput(instance, msg:str) -> None:
+    """
+    设置输出框的显示数据
+    :param instance: 主程序实例
+    :param msg: 要输出到框体的数据
+    :return: None
+    """
+    instance.main_window_signal.setOutPutBox.emit(msg)
 
 def addOne(num:int) -> int:
+    """
+    用于测试的函数，会输出输入数字+1的结果
+    :param num: 一个数字
+    :return: int
+    """
     return num+1
 
 STRING=(1<<0)

@@ -5,6 +5,7 @@ name = "hpyculator"
 def write(io_instance,anything,end="\n") -> None:
     """
     用于向指定的文件流写入，每次写入之后立即刷新缓存区（立即写入硬盘）
+
     :param io_instance: 打开的可写文件流对象
     :param anything: 要写入的东西
     :param end: 每次写入在末尾追加的东西，默认为换行符
@@ -16,6 +17,7 @@ def write(io_instance,anything,end="\n") -> None:
 def write_without_flush(io_instance,anything,end="\n") -> None:
     """
     用于向指定的文件流写入，每次写入之后不刷新缓存区，需要手动刷新（使用flush函数）
+
     :param io_instance: 打开的可写文件流对象
     :param anything: 要写入的东西
     :param end: 每次写入在末尾追加的东西，默认为换行符
@@ -26,6 +28,7 @@ def write_without_flush(io_instance,anything,end="\n") -> None:
 def flush(io_instance) -> None:
     """
     用于刷新缓存区（将缓存区中的数据写入硬盘）
+
     :param io_instance: 打开的可写文件流对象
     :return: None
     """
@@ -34,6 +37,7 @@ def flush(io_instance) -> None:
 def output(instance,anything) -> None:
     """
     输出到框体
+
     :param instance: 主程序实例
     :param anything: 要输出到框体的数据
     :return: None
@@ -43,6 +47,7 @@ def output(instance,anything) -> None:
 def clearOutput(instance) -> None:
     """
     清空输出框
+
     :param instance: 主程序实例
     :return: None
     """
@@ -51,6 +56,7 @@ def clearOutput(instance) -> None:
 def setOutput(instance, msg:str) -> None:
     """
     设置输出框的显示数据
+
     :param instance: 主程序实例
     :param msg: 要输出到框体的数据
     :return: None
@@ -60,6 +66,7 @@ def setOutput(instance, msg:str) -> None:
 def addOne(num:int) -> int:
     """
     用于测试的函数，会输出输入数字+1的结果
+
     :param num: 一个数字
     :return: int
     """

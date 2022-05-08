@@ -7,7 +7,7 @@ with open("README.md", "r") as fh:
 setup(
     # 以下为必需参数
     name='hpyculator',
-    version='1.3.1',
+    version='1.4.0',
     description='这是一个基于python的可编程计算器',
     packages=find_packages(),
     include_package_data=True,

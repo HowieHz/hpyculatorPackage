@@ -1,4 +1,5 @@
-# from Signal import main_window_signal
+from .signal import main_window_signal
+from .signal import setting_window_signal
 
 name = "hpyculator"
 
@@ -34,34 +35,31 @@ def flush(io_instance) -> None:
     """
     io_instance.flush()
 
-def output(instance,anything) -> None:
+def output(anything) -> None:
     """
     输出到框体
 
-    :param instance: 主程序实例
     :param anything: 要输出到框体的数据
     :return: None
     """
-    instance.main_window_signal.appendOutPutBox.emit(str(anything))
+    main_window_signal.appendOutPutBox.emit(str(anything))
 
-def clearOutput(instance) -> None:
+def clearOutput() -> None:
     """
     清空输出框
 
-    :param instance: 主程序实例
     :return: None
     """
-    instance.main_window_signal.clearOutPutBox.emit()
+    main_window_signal.clearOutPutBox.emit()
 
-def setOutput(instance, msg:str) -> None:
+def setOutput(msg:str) -> None:
     """
     设置输出框的显示数据
 
-    :param instance: 主程序实例
     :param msg: 要输出到框体的数据
     :return: None
     """
-    instance.main_window_signal.setOutPutBox.emit(msg)
+    main_window_signal.setOutPutBox.emit(msg)
 
 def addOne(num:int) -> int:
     """

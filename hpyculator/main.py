@@ -1,9 +1,10 @@
 from .signal import main_window_signal
 
+io_instance: open = None  # 我想用类属性的，但是时间给我干到原来的三倍，傻眼了
 
-class Main():
+
+class Main:
     def __init__(self):
-        self.io_instance: open = None
         self.STRING = (1 << 0)
         self.NUM = (1 << 1)
         self.FLOAT = (1 << 2)
@@ -19,7 +20,7 @@ class Main():
         self.NO_RETURN = (1 << 3)
         self.NO_RETURN_SINGLE_FUNCTION = (1 << 4)
 
-    def write(self,anything, end="\n") -> None:
+    def write(self, anything, end="\n") -> None:
         """
         用于向指定的文件流写入，每次写入之后立即刷新缓存区（立即写入硬盘）
 
@@ -28,11 +29,12 @@ class Main():
         :param end: 每次写入在末尾追加的东西，默认为换行符
         :return: None
         """
-        self.io_instance.write(str(anything) + end)
-        self.io_instance.flush()
+        global io_instance
+        io_instance.write(str(anything) + end)
+        io_instance.flush()
         return None
 
-    def write_without_flush(self,anything, end="\n") -> None:
+    def write_without_flush(self, anything, end="\n") -> None:
         """
         用于向指定的文件流写入，每次写入之后不刷新缓存区，需要手动刷新（使用flush函数）
 
@@ -41,7 +43,8 @@ class Main():
         :param end: 每次写入在末尾追加的东西，默认为换行符
         :return: None
         """
-        self.io_instance.write(str(anything) + end)
+        global io_instance
+        io_instance.write(str(anything) + end)
         return None
 
     def flush(self) -> None:
@@ -51,10 +54,11 @@ class Main():
         :param io_instance: 打开的可写文件流对象
         :return: None
         """
-        self.io_instance.flush()
+        global io_instance
+        io_instance.flush()
         return None
 
-    def output(self,anything) -> None:
+    def output(self, anything) -> None:
         """
         输出到框体
 
@@ -73,7 +77,7 @@ class Main():
         main_window_signal.clearOutPutBox.emit()
         return None
 
-    def setOutput(self,msg: str) -> None:
+    def setOutput(self, msg: str) -> None:
         """
         设置输出框的显示数据
 
@@ -83,7 +87,7 @@ class Main():
         main_window_signal.setOutPutBox.emit(msg)
         return None
 
-    def addOne(self,num: int) -> int:
+    def addOne(self, num: int) -> int:
         """
         用于测试的函数，会输出输入数字+1的结果
 
@@ -92,14 +96,15 @@ class Main():
         """
         return num + 1
 
-    def setIoInstance(self,io_instance) -> None:
+    def setIoInstance(self, instance) -> None:
         """
         设置类属性：io实例
 
-        :param io_instance: io实例
+        :param instance: io实例
         :return: None
         """
-        self.io_instance = io_instance
+        global io_instance
+        io_instance = instance
         return None
 
     def getIoInstance(self):
@@ -108,4 +113,5 @@ class Main():
 
         :return: 类属性：io实例
         """
-        return self.io_instance
+        global io_instance
+        return io_instance

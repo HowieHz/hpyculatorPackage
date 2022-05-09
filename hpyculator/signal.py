@@ -9,6 +9,8 @@ class MainWindowSignal(QObject):
     setStartButtonText = Signal(str)
     setStartButtonState = Signal(bool)
 
+    setOutPutBoxCursor = Signal(str)
+
 class SettingWindowSignal(QObject):
     pass
 

@@ -6,6 +6,9 @@ class MainWindowSignal(QObject):
     clearOutPutBox = Signal()
     appendOutPutBox = Signal(str)
 
+    setStartButtonText = Signal(str)
+    setStartButtonState = Signal(bool)
+
 class SettingWindowSignal(QObject):
     pass
 

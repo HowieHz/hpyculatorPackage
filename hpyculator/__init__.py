@@ -2,8 +2,9 @@ from .signal import main_window_signal
 from .signal import setting_window_signal
 
 name = "hpyculator"
+io_instance = [None] #文件流对象
 
-def write(io_instance,anything,end="\n") -> None:
+def write(anything,end="\n") -> None:
     """
     用于向指定的文件流写入，每次写入之后立即刷新缓存区（立即写入硬盘）
 
@@ -12,10 +13,11 @@ def write(io_instance,anything,end="\n") -> None:
     :param end: 每次写入在末尾追加的东西，默认为换行符
     :return: None
     """
-    io_instance.write(str(anything)+end)
-    io_instance.flush()
+    global io_instance
+    io_instance[0].write(str(anything)+end)
+    io_instance[0].flush()
 
-def write_without_flush(io_instance,anything,end="\n") -> None:
+def write_without_flush(anything,end="\n") -> None:
     """
     用于向指定的文件流写入，每次写入之后不刷新缓存区，需要手动刷新（使用flush函数）
 
@@ -24,16 +26,18 @@ def write_without_flush(io_instance,anything,end="\n") -> None:
     :param end: 每次写入在末尾追加的东西，默认为换行符
     :return: None
     """
-    io_instance.write(str(anything)+end)
+    global io_instance
+    io_instance[0].write(str(anything)+end)
 
-def flush(io_instance) -> None:
+def flush() -> None:
     """
     用于刷新缓存区（将缓存区中的数据写入硬盘）
 
     :param io_instance: 打开的可写文件流对象
     :return: None
     """
-    io_instance.flush()
+    global io_instance
+    io_instance[0].flush()
 
 def output(anything) -> None:
     """

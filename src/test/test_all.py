@@ -38,7 +38,6 @@ def test_all():
 
 @pytest.mark.run(order=1)
 def test_signal():
-    global test_reflect
     bindSignalWithSlots()
 
     main_window_signal.appendOutPutBox.emit("appendOutPutBox")

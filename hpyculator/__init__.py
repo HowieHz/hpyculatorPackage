@@ -1,5 +1,3 @@
-from .signal import main_window_signal
-from .signal import setting_window_signal
 
 name = "hpyculator"
 __all__ = list("hpy" + body for body in "core,".split(","))

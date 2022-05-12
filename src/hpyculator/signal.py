@@ -20,7 +20,6 @@ class SettingWindowSignal(QObject):
     """
     设置窗口 自定义信号
     """
-    pass
 
 
 main_window_signal = MainWindowSignal()

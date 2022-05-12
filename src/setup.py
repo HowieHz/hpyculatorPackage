@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-with open(r"..\README.md", "r") as fh:
+with open(r"..\README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
@@ -17,9 +17,6 @@ setup(
     classifiers=[
         "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
         "Operating System :: OS Independent",
-        "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.7",
-        "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
     ],
     install_requires=[],

@@ -30,7 +30,6 @@ def write(anything, end="\n") -> None:
     :param end: 每次写入在末尾追加的东西，默认为换行符
     :return: None
     """
-    global io_instance
     io_instance.write(str(anything) + end)
     io_instance.flush()
     return None
@@ -44,7 +43,6 @@ def write_without_flush(anything, end="\n") -> None:
     :param end: 每次写入在末尾追加的东西，默认为换行符
     :return: None
     """
-    global io_instance
     io_instance.write(str(anything) + end)
     return None
 
@@ -55,7 +53,6 @@ def flush() -> None:
 
     :return: None
     """
-    global io_instance
     io_instance.flush()
     return None
 
@@ -120,7 +117,6 @@ def getIoInstance():
 
     :return: 类属性：io实例
     """
-    global io_instance
     return io_instance
 
 
@@ -142,7 +138,6 @@ def getOutputData():
     :return: OutputData
     """
     main_window_signal.getOutPutBox.emit()
-    global output_data
     return output_data
 
 

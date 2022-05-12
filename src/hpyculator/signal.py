@@ -5,6 +5,7 @@ class MainWindowSignal(QObject):
     """
     主窗口 自定义信号
     """
+
     setOutPutBox = Signal(str)
     clearOutPutBox = Signal()
     appendOutPutBox = Signal(str)
@@ -20,7 +21,6 @@ class SettingWindowSignal(QObject):
     """
     设置窗口 自定义信号
     """
-    pass
 
 
 main_window_signal = MainWindowSignal()

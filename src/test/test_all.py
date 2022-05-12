@@ -1,8 +1,9 @@
-from hpyculator import hpycore
-from hpyculator import main_window_signal
-from typing import Any
-import pytest
 import tempfile
+from typing import Any
+
+import pytest
+
+from hpyculator import hpycore, main_window_signal
 
 test_reflect: Any = 0  # 初始化一个变量，用于检测结果
 

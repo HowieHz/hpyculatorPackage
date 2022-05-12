@@ -1,6 +1,7 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
 .vscode/
+.history/
 .idea/
 .cspell/
 皓式程序设置/
@@ -10,6 +11,8 @@ Python混合编程支持/
 *.py[cod]
 *$py.class
 *.fbp
+*.ps1
+report/
 
 
 # C extensions

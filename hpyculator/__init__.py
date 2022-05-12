@@ -1,9 +1,9 @@
 from .signal import main_window_signal
 from .signal import setting_window_signal
-from .main import Main
 
 name = "hpyculator"
-hpycore = Main()
+__all__ = list("hpy" + body for body in "core,".split(","))
+__version__ = "1.4.6"
 
 STRING = (1 << 0)
 NUM = (1 << 1)

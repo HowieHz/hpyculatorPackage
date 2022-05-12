@@ -1,4 +1,4 @@
-from PySide6.QtCore import Signal, QObject
+from PySide6.QtCore import QObject, Signal
 
 
 class MainWindowSignal(QObject):

@@ -156,6 +156,7 @@ def reRunTimes(times: int = 1) -> Callable:
         :param fun: 要装饰的函数
         :return: 函数
         """
+
         def runFun(*args, **kwargs) -> Tuple[Callable, float]:
             """
             装饰器

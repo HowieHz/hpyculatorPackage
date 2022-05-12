@@ -185,6 +185,13 @@ def funName(fun: Callable) -> Callable:
     name = fun.__name__
 
     def ret_fun(*args, **kwargs) -> Callable:
+        """
+        装饰器
+
+        :param args: 参
+        :param kwargs: 形参
+        :return: 函数
+        """
         return fun(*args, __fun_name__=name, **kwargs)
 
     return ret_fun

@@ -13,7 +13,7 @@ Python混合编程支持/
 *.fbp
 *.ps1
 report/
-
+.mypy_cache/
 
 # C extensions
 *.so

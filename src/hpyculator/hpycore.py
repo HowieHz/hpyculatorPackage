@@ -1,7 +1,7 @@
-from typing import Callable, Tuple, Any, Optional
+import time
+from typing import Any, Callable, Optional, Tuple
 
 from .signal import main_window_signal  # 给函数用的，不是拿来调用的
-import time
 
 io_instance: Optional[open] = None  # 我想用类属性的，但是时间给我干到原来的三倍，傻眼了
 output_data: Optional[str] = None  # 测试用的，获取输出框的数据

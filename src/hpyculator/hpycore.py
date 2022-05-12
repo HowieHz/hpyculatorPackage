@@ -172,6 +172,6 @@ def funName(fun: Callable) -> Callable:
     name = fun.__name__
 
     def ret_fun(*args, **kwargs) -> Callable:
-        return fun(*args, __name__=name, **kwargs)
+        return fun(*args, __fun_name__=name, **kwargs)
 
     return ret_fun

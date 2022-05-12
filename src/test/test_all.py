@@ -58,8 +58,8 @@ def test_signal():
 
 
 @hpycore.funName
-def get_fun_name(a, b, __name__, c=1):
-    return (a + b + c, __name__)
+def get_fun_name(a, b, __fun_name__, c=1):
+    return (a + b + c, __fun_name__)
 
 
 @hpycore.reRunTimes(12)

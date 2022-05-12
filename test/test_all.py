@@ -9,7 +9,7 @@ test_reflect: Any = 0  # 初始化一个变量，用于检测结果
 
 @pytest.mark.run(order=2)
 def test_all():
-    with tempfile.TemporaryFile('w+t', encoding='utf-8', errors='ignore') as filestream:
+    with tempfile.TemporaryFile("w+t", encoding="utf-8", errors="ignore") as filestream:
         bindSignalWithSlots()
         assert hpycore.setIoInstance(filestream) is None
         assert filestream is hpycore.getIoInstance()
@@ -60,7 +60,7 @@ def test_signal():
 
 @hpycore.funName
 def get_fun_name(a, b, __name__, c=1):
-    return (a+b+c, __name__)
+    return (a + b + c, __name__)
 
 
 @hpycore.reRunTimes(12)

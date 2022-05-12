@@ -1,5 +1,6 @@
 # hpyculatorPackage
 
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/hpyculator)
 [![DeepSource](https://deepsource.io/gh/HowieHz/hpyculatorPackage.svg/?label=active+issues&show_trend=true&token=53S3gt4_SWrxqWlzkJxMuWez)](https://deepsource.io/gh/HowieHz/hpyculatorPackage/?ref=repository-badge)
 [![DeepSource](https://deepsource.io/gh/HowieHz/hpyculatorPackage.svg/?label=resolved+issues&show_trend=true&token=53S3gt4_SWrxqWlzkJxMuWez)](https://deepsource.io/gh/HowieHz/hpyculatorPackage/?ref=repository-badge)
 

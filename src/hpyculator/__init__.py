@@ -1,3 +1,7 @@
+"""
+基本属性
+"""
+
 name = "hpyculator"
 __all__ = ["hpy" + body for body in "core,".split(",")]
 __version__ = "1.4.6"

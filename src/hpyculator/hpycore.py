@@ -1,7 +1,6 @@
-import time
-from typing import Callable, Optional, Tuple
+from typing import Optional
 
-from .signal import main_window_signal  # 给函数用的，不是拿来调用的
+from .hpysignal import main_window_signal  # 给函数用的，不是拿来调用的
 
 io_instance: Optional[open] = None  # 我想用类属性的，但是时间给我干到原来的三倍，傻眼了
 output_data: Optional[str] = None  # 测试用的，获取输出框的数据
@@ -83,14 +82,7 @@ def setOutput(msg: str) -> None:
     return None
 
 
-def addOne(num: int) -> int:
-    """用于测试的函数，会输出输入数字+1的结果
-
-    :param num: 一个数字
-    :return: int
-    """
-    return num + 1
-
+# 以下是用来传递数据的
 
 def setIoInstance(instance) -> None:
     """设置类属性：io实例
@@ -130,53 +122,10 @@ def getOutputData():
     return output_data
 
 
-def reRunTimes(times: int = 1) -> Callable:
-    """一个装饰器，用来计算函数运行时长，这个函数是装饰器参数
+def addOne(num: int) -> int:
+    """用于测试的函数，会输出输入数字+1的结果
 
-    :param times: 运行次数，默认为1
-    :return: 一个元组，第一项为函数的返回值，第二项为函数运行时长
+    :param num: 一个数字
+    :return: int
     """
-
-    def ruturnFun(fun: Callable) -> Callable:
-        """装饰器本体
-
-        :param fun: 要装饰的函数
-        :return: 函数
-        """
-
-        def runFun(*args, **kwargs) -> Tuple[Callable, float]:
-            """装饰器
-
-            :param args: 参
-            :param kwargs: 形参
-            :return: 函数
-            """
-            _time_start = time.perf_counter()
-            for _ in range(times):
-                fun_ret = fun(*args, **kwargs)
-            time_used = time.perf_counter() - _time_start
-            return fun_ret, time_used
-
-        return runFun
-
-    return ruturnFun
-
-
-def funName(fun: Callable) -> Callable:
-    """一个装饰器，函数形参增加__name__用于获得函数名
-
-    :param fun: 一个函数
-    :return: 一个函数
-    """
-    name = fun.__name__
-
-    def ret_fun(*args, **kwargs) -> Callable:
-        """装饰器
-
-        :param args: 参
-        :param kwargs: 形参
-        :return: 函数
-        """
-        return fun(*args, __fun_name__=name, **kwargs)
-
-    return ret_fun
+    return num + 1

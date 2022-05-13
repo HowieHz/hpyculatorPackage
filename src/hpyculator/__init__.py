@@ -1,6 +1,4 @@
-"""
-基本属性
-"""
+"""基本属性"""
 from .hpycore import *
 
 name = "hpyculator"

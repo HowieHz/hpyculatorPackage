@@ -2,9 +2,7 @@ from PySide6.QtCore import QObject, Signal
 
 
 class MainWindowSignal(QObject):
-    """
-    主窗口 自定义信号
-    """
+    """主窗口 自定义信号"""
 
     setOutPutBox = Signal(str)
     clearOutPutBox = Signal()
@@ -18,9 +16,7 @@ class MainWindowSignal(QObject):
 
 
 class SettingWindowSignal(QObject):
-    """
-    设置窗口 自定义信号
-    """
+    """设置窗口 自定义信号"""
 
 
 main_window_signal = MainWindowSignal()

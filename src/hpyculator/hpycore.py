@@ -22,7 +22,8 @@ NO_RETURN_SINGLE_FUNCTION = 1 << 4
 
 
 def write(anything, end="\n") -> None:
-    """用于向指定的文件流写入，每次写入之后立即刷新缓存区（立即写入硬盘）
+    """
+    用于向指定的文件流写入，每次写入之后立即刷新缓存区（立即写入硬盘）
 
     :param anything: 要写入的东西
     :param end: 每次写入在末尾追加的东西，默认为换行符
@@ -34,7 +35,8 @@ def write(anything, end="\n") -> None:
 
 
 def write_without_flush(anything, end="\n") -> None:
-    """用于向指定的文件流写入，每次写入之后不刷新缓存区，需要手动刷新（使用flush函数）
+    """
+    用于向指定的文件流写入，每次写入之后不刷新缓存区，需要手动刷新（使用flush函数）
 
     :param anything: 要写入的东西
     :param end: 每次写入在末尾追加的东西，默认为换行符
@@ -45,7 +47,8 @@ def write_without_flush(anything, end="\n") -> None:
 
 
 def flush() -> None:
-    """用于刷新缓存区（将缓存区中的数据写入硬盘）
+    """
+    用于刷新缓存区（将缓存区中的数据写入硬盘）
 
     :return: None
     """
@@ -54,7 +57,8 @@ def flush() -> None:
 
 
 def output(anything) -> None:
-    """输出到框体
+    """
+    输出到框体
 
     :param anything: 要输出到框体的数据
     :return: None
@@ -64,7 +68,8 @@ def output(anything) -> None:
 
 
 def clearOutput() -> None:
-    """清空输出框
+    """
+    清空输出框
 
     :return: None
     """
@@ -73,7 +78,8 @@ def clearOutput() -> None:
 
 
 def setOutput(msg: str) -> None:
-    """设置输出框的显示数据
+    """
+    设置输出框的显示数据
 
     :param msg: 要输出到框体的数据
     :return: None
@@ -85,7 +91,8 @@ def setOutput(msg: str) -> None:
 # 以下是用来传递数据的
 
 def setIoInstance(instance) -> None:
-    """设置类属性：io实例
+    """
+    设置类属性：io实例
 
     :param instance: io实例
     :return: None
@@ -96,7 +103,8 @@ def setIoInstance(instance) -> None:
 
 
 def getIoInstance():
-    """返回io实例
+    """
+    返回io实例
 
     :return: 类属性：io实例
     """
@@ -104,7 +112,8 @@ def getIoInstance():
 
 
 def setOutPutData(data: str) -> None:
-    """设置output_data这个变量
+    """
+    设置output_data这个变量
 
     :return: None
     """
@@ -114,7 +123,8 @@ def setOutPutData(data: str) -> None:
 
 
 def getOutputData():
-    """获取output_data这个变量
+    """
+    获取output_data这个变量
 
     :return: OutputData
     """
@@ -123,7 +133,8 @@ def getOutputData():
 
 
 def addOne(num: int) -> int:
-    """用于测试的函数，会输出输入数字+1的结果
+    """
+    用于测试的函数，会输出输入数字+1的结果
 
     :param num: 一个数字
     :return: int

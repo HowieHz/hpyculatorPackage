@@ -84,6 +84,7 @@ def setOutput(msg: str) -> None:
 
 # 以下是用来传递数据的
 
+
 def setIoInstance(instance) -> None:
     """设置类属性：io实例
 

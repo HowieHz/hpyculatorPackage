@@ -1,4 +1,4 @@
-"""默认导入hpycore的所有属性和函数，易于使用。"""
+"""默认导入hpycore的所有属性和函数，易于使用"""
 from .hpycore import *
 
 name = "hpyculator"

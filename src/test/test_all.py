@@ -3,7 +3,7 @@ from typing import Any
 
 import pytest
 
-from hpyculator import hpycore, main_window_signal
+from hpyculator import hpycore, main_win_signal
 
 test_reflect: Any = 0  # 初始化一个变量，用于检测结果
 
@@ -41,20 +41,20 @@ def test_all():
 def test_signal():
     bindSignalWithSlots()
 
-    main_window_signal.appendOutPutBox.emit("appendOutPutBox")
+    main_win_signal.appendOutPutBox.emit("appendOutPutBox")
     assert test_reflect == "appendOutPutBox"
-    main_window_signal.clearOutPutBox.emit()
+    main_win_signal.clearOutPutBox.emit()
     assert test_reflect == 0
-    main_window_signal.setOutPutBox.emit("setOutPutBox")
+    main_win_signal.setOutPutBox.emit("setOutPutBox")
     assert test_reflect == "setOutPutBox"
-    main_window_signal.getOutPutBox.emit()
+    main_win_signal.getOutPutBox.emit()
     assert test_reflect == 1
 
-    main_window_signal.setStartButtonText.emit("setStartButtonText")
+    main_win_signal.setStartButtonText.emit("setStartButtonText")
     assert test_reflect == "setStartButtonText"
-    main_window_signal.setStartButtonState.emit(True)
+    main_win_signal.setStartButtonState.emit(True)
     assert test_reflect is True
-    main_window_signal.setOutPutBoxCursor.emit("setOutPutBoxCursor")
+    main_win_signal.setOutPutBoxCursor.emit("setOutPutBoxCursor")
     assert test_reflect == "setOutPutBoxCursor"
 
 
@@ -98,10 +98,10 @@ def bindSignalWithSlots():
         test_reflect = where
 
     # 自定义信号绑定函数
-    main_window_signal.appendOutPutBox.connect(appendOutPut)
-    main_window_signal.setOutPutBox.connect(setOutPut)
-    main_window_signal.clearOutPutBox.connect(clearOutPut)
-    main_window_signal.getOutPutBox.connect(getOutPut)
-    main_window_signal.setStartButtonText.connect(setStartButtonText)
-    main_window_signal.setStartButtonState.connect(setStartButtonState)
-    main_window_signal.setOutPutBoxCursor.connect(setOutPutBoxCursor)
+    main_win_signal.appendOutPutBox.connect(appendOutPut)
+    main_win_signal.setOutPutBox.connect(setOutPut)
+    main_win_signal.clearOutPutBox.connect(clearOutPut)
+    main_win_signal.getOutPutBox.connect(getOutPut)
+    main_win_signal.setStartButtonText.connect(setStartButtonText)
+    main_win_signal.setStartButtonState.connect(setStartButtonState)
+    main_win_signal.setOutPutBoxCursor.connect(setOutPutBoxCursor)

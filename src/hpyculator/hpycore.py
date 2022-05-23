@@ -1,6 +1,5 @@
 from typing import Optional
-
-from .hpysignal import main_window_signal  # 给函数用的，不是拿来调用的
+from .hpysignal import main_win_signal  # 给函数用的，不是拿来调用的
 
 io_instance: Optional[open] = None  # 我想用类属性的，但是时间给我干到原来的三倍，傻眼了
 output_data: Optional[str] = None  # 测试用的，获取输出框的数据
@@ -63,7 +62,7 @@ def output(anything) -> None:
     :param anything: 要输出到框体的数据
     :return: None
     """
-    main_window_signal.appendOutPutBox.emit(str(anything))
+    main_win_signal.appendOutPutBox.emit(str(anything))
     return None
 
 
@@ -73,7 +72,7 @@ def clearOutput() -> None:
 
     :return: None
     """
-    main_window_signal.clearOutPutBox.emit()
+    main_win_signal.clearOutPutBox.emit()
     return None
 
 
@@ -84,7 +83,7 @@ def setOutput(msg: str) -> None:
     :param msg: 要输出到框体的数据
     :return: None
     """
-    main_window_signal.setOutPutBox.emit(msg)
+    main_win_signal.setOutPutBox.emit(msg)
     return None
 
 
@@ -129,7 +128,7 @@ def getOutputData():
 
     :return: OutputData
     """
-    main_window_signal.getOutPutBox.emit()
+    main_win_signal.getOutPutBox.emit()
     return output_data
 
 

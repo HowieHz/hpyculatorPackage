@@ -1,5 +1,5 @@
 from typing import Optional
-from .hpysignal import main_win_signal  # 给函数用的，不是拿来调用的
+from .hpysignal import instance_main_win_signal  # 单例模式 信号
 
 io_instance: Optional[open] = None  # 我想用类属性的，但是时间给我干到原来的三倍，傻眼了
 output_data: Optional[str] = None  # 测试用的，获取输出框的数据

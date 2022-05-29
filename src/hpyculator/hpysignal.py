@@ -6,15 +6,15 @@ class MainWinSignal(QObject):
     主窗口 自定义信号
     """
 
-    setOutPutBox = Signal(str)
-    clearOutPutBox = Signal()
-    appendOutPutBox = Signal(str)
-    getOutPutBox = Signal()
+    set_output_box = Signal(str)
+    clear_output_box = Signal()
+    append_output_box = Signal(str)
+    get_output_box = Signal()
 
-    setStartButtonText = Signal(str)
-    setStartButtonState = Signal(bool)
+    set_start_button_text = Signal(str)
+    set_start_button_state = Signal(bool)
 
-    setOutPutBoxCursor = Signal(str)
+    set_output_box_cursor = Signal(str)
 
 
-main_win_signal = MainWinSignal()
+instance_main_win_signal = MainWinSignal()  # 单例模式

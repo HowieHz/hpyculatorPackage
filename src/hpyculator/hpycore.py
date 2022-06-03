@@ -30,7 +30,6 @@ def write(anything, end="\n") -> None:
     """
     io_instance.write(str(anything) + end)
     io_instance.flush()
-    return None
 
 
 def write_without_flush(anything, end="\n") -> None:
@@ -42,7 +41,6 @@ def write_without_flush(anything, end="\n") -> None:
     :return: None
     """
     io_instance.write(str(anything) + end)
-    return None
 
 
 def flush() -> None:
@@ -52,7 +50,6 @@ def flush() -> None:
     :return: None
     """
     io_instance.flush()
-    return None
 
 
 def output(anything) -> None:
@@ -62,8 +59,7 @@ def output(anything) -> None:
     :param anything: 要输出到框体的数据
     :return: None
     """
-    main_win_signal.appendOutPutBox.emit(str(anything))
-    return None
+    instance_main_win_signal.appendOutPutBox.emit(str(anything))
 
 
 def clearOutput() -> None:
@@ -72,8 +68,7 @@ def clearOutput() -> None:
 
     :return: None
     """
-    main_win_signal.clearOutPutBox.emit()
-    return None
+    instance_main_win_signal.clearOutPutBox.emit()
 
 
 def setOutput(msg: str) -> None:
@@ -83,8 +78,7 @@ def setOutput(msg: str) -> None:
     :param msg: 要输出到框体的数据
     :return: None
     """
-    main_win_signal.setOutPutBox.emit(msg)
-    return None
+    instance_main_win_signal.setOutPutBox.emit(msg)
 
 
 # 以下是用来传递数据的
@@ -99,7 +93,6 @@ def setIoInstance(instance) -> None:
     """
     global io_instance
     io_instance = instance
-    return None
 
 
 def getIoInstance():
@@ -119,7 +112,6 @@ def setOutPutData(data: str) -> None:
     """
     global output_data
     output_data = data
-    return None
 
 
 def getOutputData():
@@ -128,7 +120,7 @@ def getOutputData():
 
     :return: OutputData
     """
-    main_win_signal.getOutPutBox.emit()
+    instance_main_win_signal.getOutPutBox.emit()
     return output_data
 
 

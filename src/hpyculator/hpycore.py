@@ -59,7 +59,7 @@ def output(anything) -> None:
     :param anything: 要输出到框体的数据
     :return: None
     """
-    instance_main_win_signal.appendOutPutBox.emit(str(anything))
+    instance_main_win_signal.append_output_box.emit(str(anything))
 
 
 def clearOutput() -> None:
@@ -68,7 +68,7 @@ def clearOutput() -> None:
 
     :return: None
     """
-    instance_main_win_signal.clearOutPutBox.emit()
+    instance_main_win_signal.clear_output_box.emit()
 
 
 def setOutput(msg: str) -> None:
@@ -78,7 +78,7 @@ def setOutput(msg: str) -> None:
     :param msg: 要输出到框体的数据
     :return: None
     """
-    instance_main_win_signal.setOutPutBox.emit(msg)
+    instance_main_win_signal.set_output_box.emit(msg)
 
 
 # 以下是用来传递数据的
@@ -120,7 +120,7 @@ def getOutputData():
 
     :return: OutputData
     """
-    instance_main_win_signal.getOutPutBox.emit()
+    instance_main_win_signal.get_output_box.emit()
     return output_data
 
 

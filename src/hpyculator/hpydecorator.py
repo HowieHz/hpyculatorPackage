@@ -13,8 +13,10 @@ def reRunTimes(times: int = 1) -> Callable:
     :param times: 运行次数，默认为1
     :return Tuple: 原函数调用结果，ns为单位的运行时长
     """
+
     def ruturnFun(fun: Callable) -> Callable:
         """nothing"""
+
         def runFun(*args, **kwargs) -> Tuple[Callable, int]:
             """nothing"""
             _time_start = time.perf_counter_ns()
@@ -22,7 +24,9 @@ def reRunTimes(times: int = 1) -> Callable:
                 fun_ret = fun(*args, **kwargs)
             time_used = time.perf_counter_ns() - _time_start
             return fun_ret, time_used
+
         return runFun
+
     return ruturnFun
 
 

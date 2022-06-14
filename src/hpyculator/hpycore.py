@@ -23,6 +23,7 @@ NO_RETURN_SINGLE_FUNCTION = 1 << 4
 RETURN_LIST = 1 << 1
 RETURN_LIST_OUTPUT_IN_ONE_LINE = 1 << 2
 
+
 def write(anything, end="\n") -> None:
     """
     用于向指定的文件流写入，每次写入之后立即刷新缓存区（立即写入硬盘）

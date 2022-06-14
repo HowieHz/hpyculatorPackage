@@ -14,6 +14,7 @@ dict_settings_file_object = {
     "yaml": YamlSettingsFileObject,
 }
 
+
 def load(
     settings_dir_path: str = "",
     settings_file_name: str = "settings",

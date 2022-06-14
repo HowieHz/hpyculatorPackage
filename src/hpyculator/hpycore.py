@@ -14,11 +14,14 @@ OFF = 1 << 0  # 因为没读到就用这个作为缺省，所以每个参数的(
 
 # 'output_mode'
 RETURN_ONCE = 1 << 0
-RETURN_LIST = 1 << 1
-RETURN_LIST_OUTPUT_IN_ONE_LINE = 1 << 2
+RETURN_ITERABLE = 1 << 1
+RETURN_ITERABLE_OUTPUT_IN_ONE_LINE = 1 << 2
 NO_RETURN = 1 << 3
 NO_RETURN_SINGLE_FUNCTION = 1 << 4
 
+# 将要移除
+RETURN_LIST = 1 << 1
+RETURN_LIST_OUTPUT_IN_ONE_LINE = 1 << 2
 
 def write(anything, end="\n") -> None:
     """

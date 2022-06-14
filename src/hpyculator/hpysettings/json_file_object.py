@@ -34,7 +34,7 @@ class JsonSettingsFileObject(SettingsFileObject):
 
         :param key:
         :param value:
-        :return:
+        :return: self
         """
         settings_dict = self.readAll()
         with open(self._settings_file_path, mode="w+", encoding="utf-8") as f:
@@ -42,6 +42,7 @@ class JsonSettingsFileObject(SettingsFileObject):
             json.dump(
                 settings_dict, f, sort_keys=True, indent=4, separators=(",", ": ")
             )
+        return self
 
     def read(self, key: str) -> Any:
         """
@@ -65,12 +66,12 @@ class JsonSettingsFileObject(SettingsFileObject):
             settings_dict = json.load(f)
         return settings_dict
 
-    def delete(self, key: str) -> None:
+    def delete(self, key: str):
         """
         删除一项配置
 
         :param key:
-        :return:
+        :return: self
         """
         if not self.exists(key):
             raise KeyError
@@ -80,15 +81,15 @@ class JsonSettingsFileObject(SettingsFileObject):
             json.dump(
                 settings_dict, f, sort_keys=True, indent=4, separators=(",", ": ")
             )
-        return
+        return self
 
-    def modify(self, key: str, value: Any) -> None:
+    def modify(self, key: str, value: Any):
         """
         修改一项配置
 
         :param key:
         :param value:
-        :return:
+        :return: self
         """
         if not self.exists(key):
             raise KeyError
@@ -98,7 +99,7 @@ class JsonSettingsFileObject(SettingsFileObject):
             json.dump(
                 settings_dict, f, sort_keys=True, indent=4, separators=(",", ": ")
             )
-        return
+        return self
 
     def exists(self, key: str) -> bool:
         """

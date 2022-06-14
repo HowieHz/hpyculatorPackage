@@ -31,12 +31,13 @@ class YamlSettingsFileObject(SettingsFileObject):
 
         :param key:
         :param value:
-        :return:
+        :return: self
         """
         settings_dict = self.readAll()
         with open(self._settings_file_path, mode="w+", encoding="utf-8") as f:
             settings_dict[key] = value
             yaml.dump(settings_dict, f)
+        return self
 
     def read(self, key: str) -> Any:
         """
@@ -60,12 +61,12 @@ class YamlSettingsFileObject(SettingsFileObject):
             settings_dict = yaml.safe_load(f)
         return settings_dict
 
-    def delete(self, key: str) -> None:
+    def delete(self, key: str):
         """
         删除一项配置
 
         :param key:
-        :return:
+        :return: self
         """
         if not self.exists(key):
             raise KeyError
@@ -73,15 +74,15 @@ class YamlSettingsFileObject(SettingsFileObject):
         with open(self._settings_file_path, mode="w+", encoding="utf-8") as f:
             settings_dict.pop(key)
             yaml.dump(settings_dict, f)
-        return
+        return self
 
-    def modify(self, key: str, value: Any) -> None:
+    def modify(self, key: str, value: Any):
         """
         修改一项配置
 
         :param key:
         :param value:
-        :return:
+        :return: self
         """
         if not self.exists(key):
             raise KeyError
@@ -89,7 +90,7 @@ class YamlSettingsFileObject(SettingsFileObject):
         with open(self._settings_file_path, mode="w+", encoding="utf-8") as f:
             settings_dict[key] = value
             yaml.dump(settings_dict, f)
-        return
+        return self
 
     def exists(self, key: str) -> bool:
         """

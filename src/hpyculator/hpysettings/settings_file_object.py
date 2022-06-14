@@ -44,7 +44,7 @@ class SettingsFileObject(ABC):
 
         :param key:
         :param value:
-        :return:
+        :return: self
         """
 
     @abstractmethod
@@ -72,7 +72,7 @@ class SettingsFileObject(ABC):
         删除一项配置
 
         :param key:
-        :return:
+        :return: self
         """
         if not self.exists(key):
             raise KeyError
@@ -84,7 +84,7 @@ class SettingsFileObject(ABC):
 
         :param key:
         :param value:
-        :return:
+        :return: self
         """
         if not self.exists(key):
             raise KeyError

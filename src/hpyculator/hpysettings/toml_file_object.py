@@ -1,7 +1,9 @@
 """用于创建toml文件对象"""
-from .settings_file_object import SettingsFileObject
-import toml
 from typing import Any
+
+import toml
+
+from .settings_file_object import SettingsFileObject
 
 
 class TomlSettingsFileObject(SettingsFileObject):

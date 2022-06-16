@@ -2,17 +2,18 @@
 # xml X
 # ini X
 
-from .toml_file_object import TomlSettingsFileObject
-from .json_file_object import JsonSettingsFileObject
-from .yaml_file_object import YamlSettingsFileObject
-
 import os
+
+from .json_file_object import JsonSettingsFileObject
+from .toml_file_object import TomlSettingsFileObject
+from .yaml_file_object import YamlSettingsFileObject
 
 dict_settings_file_object = {
     "toml": TomlSettingsFileObject,
     "json": JsonSettingsFileObject,
     "yaml": YamlSettingsFileObject,
 }
+
 
 def load(
     settings_dir_path: str = "",

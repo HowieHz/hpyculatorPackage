@@ -1,7 +1,8 @@
 """用于创建json文件对象"""
-from .settings_file_object import SettingsFileObject
 import json
 from typing import Any
+
+from .settings_file_object import SettingsFileObject
 
 
 class JsonSettingsFileObject(SettingsFileObject):

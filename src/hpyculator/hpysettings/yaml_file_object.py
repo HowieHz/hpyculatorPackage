@@ -1,7 +1,9 @@
 """用于创建yaml文件对象"""
-from .settings_file_object import SettingsFileObject
-import yaml
 from typing import Any
+
+import yaml
+
+from .settings_file_object import SettingsFileObject
 
 
 class YamlSettingsFileObject(SettingsFileObject):

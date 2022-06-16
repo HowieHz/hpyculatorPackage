@@ -1,4 +1,5 @@
 from typing import Optional
+
 from .hpysignal import instance_main_win_signal  # 单例模式 信号
 
 io_instance: Optional[open] = None  # 我想用类属性的，但是时间给我干到原来的三倍，傻眼了
@@ -22,6 +23,7 @@ NO_RETURN_SINGLE_FUNCTION = 1 << 4
 # 将要移除
 RETURN_LIST = 1 << 1
 RETURN_LIST_OUTPUT_IN_ONE_LINE = 1 << 2
+
 
 def write(anything, end="\n") -> None:
     """

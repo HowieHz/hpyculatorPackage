@@ -10,7 +10,7 @@
 
 `pip install hpyculator`
 
-## 子模块(方法注释完备，以方法注释为准)
+## 子模块(以方法文档为准)
 
 ### hpycore
 

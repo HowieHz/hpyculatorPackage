@@ -31,7 +31,6 @@ class SettingsFileObject(ABC):
         )
 
         # 初始化文件
-        # # self._file_stream = open(self._settings_file_path, mode="w+", buffering=-1, encoding="utf-8")
         self._settings_file_stream = open(
             self._settings_file_path, mode="a+", encoding="utf-8"
         )

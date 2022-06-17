@@ -1,7 +1,7 @@
 """用于创建toml文件对象"""
 from typing import Any
 
-import toml
+import rtoml as toml
 
 from .settings_file_object import SettingsFileObject
 

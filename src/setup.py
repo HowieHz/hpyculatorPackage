@@ -19,7 +19,10 @@ setup(
         "Operating System :: OS Independent",
         "Programming Language :: Python :: 3.10",
     ],
-    install_requires=[],
+    install_requires=[
+        "rtoml",
+        "pyyaml",
+    ],
     project_urls={
         "Bug Reports": "https://github.com/HowieHz/hpyculatorPackage/issues",
     },

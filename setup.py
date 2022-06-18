@@ -1,7 +1,8 @@
-from setuptools import find_packages, setup
 from pathlib import Path
 
-description="这是一个基于python的高拓展性计算器"
+from setuptools import find_packages, setup
+
+description = "这是一个基于python的高拓展性计算器"
 
 # with open(r"..\README.md", "r", encoding="utf-8") as fh:
 #     long_description = fh.read()
@@ -11,7 +12,7 @@ THIS_DIR = Path(__file__).resolve().parent
 #     long_description = (THIS_DIR / 'README.md').read_text()
 # except FileNotFoundError:
 #     long_description = description
-long_description = (THIS_DIR / 'README.md').read_text()
+long_description = (THIS_DIR / "README.md").read_text()
 
 setup(
     # 以下为必需参数

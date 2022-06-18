@@ -3,4 +3,3 @@ from .hpycore import *
 
 name = "hpyculator"
 __all__ = ["hpy" + body for body in "core,signal,decorator,settings".split(",")]
-__version__ = "1.4.10"

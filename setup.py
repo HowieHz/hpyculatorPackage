@@ -1,7 +1,7 @@
 from setuptools import find_packages, setup
 from pathlib import Path
 
-description="这是一个基于python的高拓展性计算器"
+description = "这是一个基于python的高拓展性计算器"
 
 # with open(r"..\README.md", "r", encoding="utf-8") as fh:
 #     long_description = fh.read()
@@ -13,15 +13,18 @@ THIS_DIR = Path(__file__).resolve().parent
 #     long_description = description
 long_description = (THIS_DIR / 'README.md').read_text(encoding='utf-8')
 
+VERSION = "1.4.12"
+
 setup(
     # 以下为必需参数
     name="hpyculator",
-    version="1.4.12",
+    version=VERSION,
     description=description,
     packages=find_packages(),
     include_package_data=True,
     zip_safe=False,
     long_description=long_description,
+    long_description_content_type='text/markdown',
     url="https://github.com/HowieHz/hpyculatorPackage",
     author="HowieHz",  # 作者名
     classifiers=[

@@ -13,7 +13,7 @@ THIS_DIR = Path(__file__).resolve().parent
 #     long_description = description
 long_description = (THIS_DIR / 'README.md').read_text(encoding='utf-8')
 
-VERSION = "1.4.12"
+VERSION = "1.4.12.1"
 
 setup(
     # 以下为必需参数

@@ -1,5 +1,6 @@
-from setuptools import find_packages, setup
 from pathlib import Path
+
+from setuptools import find_packages, setup
 
 description = "这是一个基于python的高拓展性计算器"
 
@@ -11,7 +12,7 @@ THIS_DIR = Path(__file__).resolve().parent
 #     long_description = (THIS_DIR / 'README.md').read_text()
 # except FileNotFoundError:
 #     long_description = description
-long_description = (THIS_DIR / 'README.md').read_text(encoding='utf-8')
+long_description = (THIS_DIR / "README.md").read_text(encoding="utf-8")
 
 VERSION = "1.4.12"
 
@@ -24,7 +25,7 @@ setup(
     include_package_data=True,
     zip_safe=False,
     long_description=long_description,
-    long_description_content_type='text/markdown',
+    long_description_content_type="text/markdown",
     url="https://github.com/HowieHz/hpyculatorPackage",
     author="HowieHz",  # 作者名
     classifiers=[

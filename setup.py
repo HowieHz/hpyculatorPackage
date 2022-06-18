@@ -11,7 +11,7 @@ THIS_DIR = Path(__file__).resolve().parent
 #     long_description = (THIS_DIR / 'README.md').read_text()
 # except FileNotFoundError:
 #     long_description = description
-long_description = (THIS_DIR / 'README.md').read_text()
+long_description = (THIS_DIR / 'README.md').read_text(encoding='utf-8')
 
 setup(
     # 以下为必需参数

@@ -1,5 +1,11 @@
 # hpyculatorPackage
 
+![PyPI - License](https://img.shields.io/pypi/l/hpyculator)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/hpyculator)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/f276a62341d647d08cd3c3dd275097ff)](https://www.codacy.com/gh/HowieHz/hpyculatorPackage/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=HowieHz/hpyculatorPackage&amp;utm_campaign=Badge_Grade)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/hpyculator)
+![GitHub repo size](https://img.shields.io/github/repo-size/HowieHz/hpyculatorPackage)
+
 >基于python3.10
 
 <https://github.com/HowieHz/hpyculator>
@@ -36,10 +42,10 @@
         set_output_box设置输出窗口文字，传入一个参数(str)
         clear_output_box清空输出窗口文字
         append_output_box追加输出窗口文字，传入一个参数(str)
-    
+
         set_start_button_text设置开始按钮上的文字，传入一个参数(str)
         set_start_button_state设置开始按钮是否启用，传入一个参数(bool)
-    
+
         set_output_box_cursor设置输出窗口的指针位置，传入一个参数(str)
 
     使用方法：

@@ -16,6 +16,7 @@ def flatten(sequence: Union[list, tuple]) -> list:
             ret.append(_)
     return ret
 
+
 def flatten_layer(sequence: Union[list, tuple]) -> list:
     """
     将多维数据结构展平一层
@@ -30,6 +31,7 @@ def flatten_layer(sequence: Union[list, tuple]) -> list:
         else:
             ret.append(_)
     return ret
+
 
 def flatten_no_recursion(sequence: Union[list, tuple]) -> list:
     """

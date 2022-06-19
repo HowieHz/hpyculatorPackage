@@ -62,6 +62,7 @@ def output(anything) -> None:
     """
     instance_main_win_signal.append_output_box.emit(str(anything))
 
+
 def output_without_line_break(anything) -> None:
     """
     输出到框体，但是不换行

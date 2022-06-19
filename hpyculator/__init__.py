@@ -2,4 +2,4 @@
 from .hpycore import *
 
 name = "hpyculator"
-__all__ = ["hpy" + body for body in "core,signal,decorator,settings".split(",")]
+__all__ = ["hpy" + body for body in "core, signal, decorator, settings, func".split(",")]

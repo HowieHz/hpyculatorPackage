@@ -8,7 +8,8 @@ class MainWinSignal(QObject):
 
     set_output_box = Signal(str)
     clear_output_box = Signal()
-    append_output_box = Signal(str)
+    append_output_box = Signal(str)  # 输出前会添加换行符
+    insert_output_box = Signal(str)  # 输出前不会添加换行符
     get_output_box = Signal()
 
     set_start_button_text = Signal(str)

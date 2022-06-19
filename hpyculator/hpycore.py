@@ -20,10 +20,6 @@ RETURN_ITERABLE_OUTPUT_IN_ONE_LINE = 1 << 2
 NO_RETURN = 1 << 3
 NO_RETURN_SINGLE_FUNCTION = 1 << 4
 
-# 将要移除
-RETURN_LIST = 1 << 1
-RETURN_LIST_OUTPUT_IN_ONE_LINE = 1 << 2
-
 
 def write(anything, end="\n") -> None:
     """
@@ -59,12 +55,21 @@ def flush() -> None:
 
 def output(anything) -> None:
     """
-    输出到框体
+    输出到框体，会自动添加换行符
 
     :param anything: 要输出到框体的数据
     :return: None
     """
     instance_main_win_signal.append_output_box.emit(str(anything))
+
+def output_without_line_break(anything) -> None:
+    """
+    输出到框体，但是不换行
+
+    :param anything: 要输出到框体的数据
+    :return: None
+    """
+    instance_main_win_signal.insert_output_box.emit(str(anything))
 
 
 def clearOutput() -> None:

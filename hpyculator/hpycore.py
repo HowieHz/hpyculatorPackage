@@ -1,4 +1,4 @@
-from typing import Optional, IO, Any
+from typing import IO, Any, Optional
 
 from .hpysignal import instance_main_win_signal  # 单例模式 信号
 
@@ -93,6 +93,7 @@ def setOutput(msg: str) -> None:
 
 
 # 以下是用来传递数据的
+
 
 def setIoInstance(instance: IO) -> None:
     """

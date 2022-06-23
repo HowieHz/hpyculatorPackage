@@ -1,8 +1,8 @@
-from typing import Optional
+from typing import Optional, IO, Any
 
 from .hpysignal import instance_main_win_signal  # 单例模式 信号
 
-io_instance: Optional[open] = None  # 我想用类属性的，但是时间给我干到原来的三倍，傻眼了
+io_instance: Optional[IO] = None  # 我想用类属性的，但是时间给我干到原来的三倍，傻眼了
 output_data: Optional[str] = None  # 测试用的，获取输出框的数据
 
 STRING = 1 << 0
@@ -21,7 +21,7 @@ NO_RETURN = 1 << 3
 NO_RETURN_SINGLE_FUNCTION = 1 << 4
 
 
-def write(anything, end="\n") -> None:
+def write(anything: Any, end="\n") -> None:
     """
     用于向指定的文件流写入，每次写入之后立即刷新缓存区（立即写入硬盘）
 
@@ -33,7 +33,7 @@ def write(anything, end="\n") -> None:
     io_instance.flush()
 
 
-def write_without_flush(anything, end="\n") -> None:
+def write_without_flush(anything: Any, end="\n") -> None:
     """
     用于向指定的文件流写入，每次写入之后不刷新缓存区，需要手动刷新（使用flush函数）
 
@@ -53,7 +53,7 @@ def flush() -> None:
     io_instance.flush()
 
 
-def output(anything) -> None:
+def output(anything: Any) -> None:
     """
     输出到框体，会自动添加换行符
 
@@ -63,7 +63,7 @@ def output(anything) -> None:
     instance_main_win_signal.append_output_box.emit(str(anything))
 
 
-def output_without_line_break(anything) -> None:
+def output_without_line_break(anything: Any) -> None:
     """
     输出到框体，但是不换行
 
@@ -94,8 +94,7 @@ def setOutput(msg: str) -> None:
 
 # 以下是用来传递数据的
 
-
-def setIoInstance(instance) -> None:
+def setIoInstance(instance: IO) -> None:
     """
     设置类属性：io实例
 
@@ -106,7 +105,7 @@ def setIoInstance(instance) -> None:
     io_instance = instance
 
 
-def getIoInstance():
+def getIoInstance() -> IO:
     """
     返回io实例
 

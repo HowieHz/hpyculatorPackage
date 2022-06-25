@@ -1,11 +1,11 @@
 import tempfile
-from typing import Any, AnyStr, IO
+from random import randint
+from typing import IO, Any, AnyStr
 
 import pytest
 
 from hpyculator import hpycore, hpydecorator, hpyfunc
 from hpyculator.hpysignal import instance_main_win_signal as main_signal
-from random import randint
 
 test_buffer: Any = 0  # 初始化一个变量，用于检测结果
 test_reflect: Any = 0  # 初始化一个变量，用于检测结果

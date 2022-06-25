@@ -3,13 +3,10 @@ from random import randint
 from typing import IO, Any, AnyStr
 
 import pytest
-from . import hpyc
-from hpyc import hpycore, hpydecorator, hpyfunc
-from hpyc.hpysignal import instance_main_win_signal as main_signal
 
 # # 这样才可以导入上层包哈哈
 # sys.path.append(os.path.join(sys.path[0], ".."))
-
+from . import hpycore, hpydecorator, hpyfunc, main_signal
 
 test_buffer: Any = 0  # 初始化一个变量，用于检测结果
 test_reflect: Any = 0  # 初始化一个变量，用于检测结果
@@ -37,6 +34,8 @@ test_bool = True
 
 @pytest.mark.run(order=1)
 def test_hpysignal():
+    global test_reflect
+
     def _slot_fun(text: str):
         global test_reflect
         test_reflect = text

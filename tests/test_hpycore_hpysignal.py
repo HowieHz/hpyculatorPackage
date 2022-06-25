@@ -6,13 +6,15 @@ import pytest
 
 # # 这样才可以导入上层包哈哈
 # sys.path.append(os.path.join(sys.path[0], ".."))
-from . import hpycore, hpydecorator, hpyfunc, main_signal
+from . import hpycore, main_signal
 
 test_buffer: Any = 0  # 初始化一个变量，用于检测结果
 test_reflect: Any = 0  # 初始化一个变量，用于检测结果
 
 
 class io(IO):
+    """模拟打开的文件流"""
+
     def __init__(self):
         ...
 
@@ -25,8 +27,9 @@ class io(IO):
         test_reflect = test_buffer
 
 
-instance_io = io()
+instance_io = io()  # 创建实例
 
+# 测试数据
 num = randint(0, 99999)
 test_data = str(num) + "test_data"
 test_bool = True
@@ -34,20 +37,26 @@ test_bool = True
 
 @pytest.mark.run(order=1)
 def test_hpysignal():
+    """
+    测试hpysignal子模块
+
+    :return:
+    """
     global test_reflect
 
-    def _slot_fun(text: str):
+    def _slot_fun(text: str):  # 模拟str型形参槽
         global test_reflect
         test_reflect = text
 
-    def _slot_fun_none():
+    def _slot_fun_none():  # 模拟无参数槽
         global test_reflect
         test_reflect = None
 
-    def _slot_fun_bool(b: bool):
+    def _slot_fun_bool(b: bool):  # 模拟bool型形参槽
         global test_reflect
         test_reflect = b
 
+    # 绑定对应槽函数
     main_signal.set_output_box.connect(_slot_fun)
     main_signal.clear_output_box.connect(_slot_fun_none)
     main_signal.append_output_box.connect(_slot_fun)
@@ -96,6 +105,11 @@ def test_hpysignal():
 
 @pytest.mark.run(order=2)
 def test_hpycore():
+    """
+    测试hpycore模块
+
+    :return:
+    """
     assert (num + 1) == hpycore.addOne(num)
 
     hpycore.setIoInstance(instance_io)
@@ -123,29 +137,3 @@ def test_hpycore():
 
     hpycore.output(test_data)
     assert test_reflect == test_data
-
-
-def test_hpydecorator():
-    test_times: int = 0  # 初始化一个变量，用于检测结果
-
-    @hpydecorator.reRunTimes(5)
-    def _fun(text: str):
-        nonlocal test_times
-        test_times += 1
-        return text
-
-    ret = _fun(test_data)
-    assert ret[0] == test_data and isinstance(ret[1], int)
-
-    @hpydecorator.funName
-    def _fun2(text: str, __fun_name__: str):
-        return text, __fun_name__
-
-    assert (test_data, "_fun2") == _fun2(test_data)
-
-
-def test_hpyfunc():
-    test_list = [1, 2, 3, [4, 5, [6, 7]]]
-    assert [1, 2, 3, 4, 5, 6, 7] == hpyfunc.flatten(test_list)
-    assert [1, 2, 3, 4, 5, [6, 7]] == hpyfunc.flatten_layer(test_list)
-    assert [1, 2, 3, 4, 5, 6, 7] == hpyfunc.flatten_no_recursion(test_list)

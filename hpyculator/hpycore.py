@@ -1,4 +1,4 @@
-from typing import Optional, IO, Any
+from typing import IO, Any, Optional
 
 from .hpysignal import instance_main_win_signal  # 单例模式 信号
 

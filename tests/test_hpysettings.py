@@ -27,7 +27,7 @@ instance_yaml_settings_file = hpysettings.load(
 
 test_text = random.randint(0, 9999)
 test_key = str(random.randint(0, 9999)) + str("test_key")
-test_value = (random.randint(0, 9999),)
+test_value = random.randint(0, 9999)
 test_value2 = True
 test_value3 = test_text
 

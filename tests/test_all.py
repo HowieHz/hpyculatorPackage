@@ -3,8 +3,9 @@ from random import randint
 from typing import IO, Any, AnyStr
 
 import pytest
-from . import hpycore, hpydecorator, hpyfunc
-from .hpysignal import instance_main_win_signal as main_signal
+from . import hpyc
+from hpyc import hpycore, hpydecorator, hpyfunc
+from hpyc.hpysignal import instance_main_win_signal as main_signal
 
 # # 这样才可以导入上层包哈哈
 # sys.path.append(os.path.join(sys.path[0], ".."))

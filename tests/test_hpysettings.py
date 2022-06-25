@@ -5,9 +5,10 @@ import pytest
 
 from . import hpysettings
 
-setting_file_path = os.getcwd()
+setting_file_path = os.path.join(os.getcwd(), "settings_file_dir")
 test_text = random.randint(0, 9999)
 test_key = str(random.randint(0, 9999)) + str("test_key")
+test_key2 = str(random.randint(0, 9999)) + str("test_key2")
 test_value = random.randint(0, 9999)
 test_value2 = True
 test_value3 = test_text
@@ -55,3 +56,21 @@ def test_settings_file():
         assert instance_settings_file.setting_file_path == os.path.join(
             setting_file_path, file_name
         )
+
+        try:
+            instance_settings_file.read(test_key2)
+            pytest.fail("读取不存在的键时未能引发KeyError错误")
+        except KeyError:
+            ...
+
+        try:
+            instance_settings_file.delete(test_key2)
+            pytest.fail("删除不存在的键时未能引发KeyError错误")
+        except KeyError:
+            ...
+
+        try:
+            instance_settings_file.modify(test_key2)
+            pytest.fail("修改不存在的键时未能引发KeyError错误")
+        except KeyError:
+            ...

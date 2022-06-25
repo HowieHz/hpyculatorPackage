@@ -3,7 +3,8 @@ version = 1
 test_patterns = [
   "src/test/**",
   "test/**",
-  "test_*.py"
+  "test_*.py",
+  "tests/**",
 ]
 
 [[analyzers]]

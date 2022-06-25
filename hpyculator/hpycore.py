@@ -21,24 +21,24 @@ NO_RETURN = 1 << 3
 NO_RETURN_SINGLE_FUNCTION = 1 << 4
 
 
-def write(anything: Any, end="\n") -> None:
+def write(anything: Any, end: str = "\n") -> None:
     """
     用于向指定的文件流写入，每次写入之后立即刷新缓存区（立即写入硬盘）
 
-    :param anything: 要写入的东西
-    :param end: 每次写入在末尾追加的东西，默认为换行符
+    :param Any anything: 要写入的东西
+    :param str end: 每次写入在末尾追加的东西，默认为换行符
     :return: None
     """
     io_instance.write(str(anything) + end)
     io_instance.flush()
 
 
-def write_without_flush(anything: Any, end="\n") -> None:
+def write_without_flush(anything: Any, end: str = "\n") -> None:
     """
     用于向指定的文件流写入，每次写入之后不刷新缓存区，需要手动刷新（使用flush函数）
 
-    :param anything: 要写入的东西
-    :param end: 每次写入在末尾追加的东西，默认为换行符
+    :param Any anything: 要写入的东西
+    :param str end: 每次写入在末尾追加的东西，默认为换行符
     :return: None
     """
     io_instance.write(str(anything) + end)
@@ -57,7 +57,7 @@ def output(anything: Any) -> None:
     """
     输出到框体，会自动添加换行符
 
-    :param anything: 要输出到框体的数据
+    :param Any anything: 要输出到框体的数据
     :return: None
     """
     instance_main_win_signal.append_output_box.emit(str(anything))
@@ -67,7 +67,7 @@ def output_without_line_break(anything: Any) -> None:
     """
     输出到框体，但是不换行
 
-    :param anything: 要输出到框体的数据
+    :param Any anything: 要输出到框体的数据
     :return: None
     """
     instance_main_win_signal.insert_output_box.emit(str(anything))
@@ -86,7 +86,7 @@ def setOutput(msg: str) -> None:
     """
     设置输出框的显示数据
 
-    :param msg: 要输出到框体的数据
+    :param str msg: 要输出到框体的数据
     :return: None
     """
     instance_main_win_signal.set_output_box.emit(msg)
@@ -94,11 +94,12 @@ def setOutput(msg: str) -> None:
 
 # 以下是用来传递数据的
 
+
 def setIoInstance(instance: IO) -> None:
     """
     设置类属性：io实例
 
-    :param instance: io实例
+    :param IO instance: io实例
     :return: None
     """
     global io_instance
@@ -109,7 +110,7 @@ def getIoInstance() -> IO:
     """
     返回io实例
 
-    :return: 类属性：io实例
+    :return: io实例
     """
     return io_instance
 
@@ -138,7 +139,7 @@ def addOne(num: int) -> int:
     """
     用于测试的函数，会输出输入数字+1的结果
 
-    :param num: 一个数字
+    :param int num: 一个数字
     :return: int
     """
     return num + 1

@@ -155,9 +155,3 @@
     :param sequence:
     :return: list
     """
-
-[//]: # ()
-[//]: # (## 更多细节请看文档)
-
-[//]: # ()
-[//]: # (<https://hpyculator.readthedocs.io/>)

@@ -1,9 +1,7 @@
 import tempfile
 from random import randint
 from typing import IO, Any, AnyStr
-import os
 
-print(os.getcwd())
 import pytest
 from hpyc import hpycore, hpydecorator, hpyfunc
 from hpyc.hpysignal import instance_main_win_signal as main_signal

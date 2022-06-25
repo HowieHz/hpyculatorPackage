@@ -104,7 +104,6 @@ class SettingsFileObject(ABC):
         :return: 存在为True，不存在为False
         :rtype: bool
         """
-        return False
 
     @property
     def setting_file_path(self) -> str:

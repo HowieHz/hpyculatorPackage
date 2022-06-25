@@ -1,14 +1,14 @@
 import tempfile
-from typing import Any, AnyStr, IO
+from random import randint
+from typing import IO, Any, AnyStr
 
 import pytest
+from hpyc import hpycore, hpydecorator, hpyfunc
+from hpyc.hpysignal import instance_main_win_signal as main_signal
 
 # # 这样才可以导入上层包哈哈
 # sys.path.append(os.path.join(sys.path[0], ".."))
 
-from hpyc import hpycore, hpydecorator, hpyfunc
-from hpyc.hpysignal import instance_main_win_signal as main_signal
-from random import randint
 
 test_buffer: Any = 0  # 初始化一个变量，用于检测结果
 test_reflect: Any = 0  # 初始化一个变量，用于检测结果

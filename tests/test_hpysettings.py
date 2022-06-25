@@ -2,8 +2,6 @@ import os
 import random
 import time
 
-import pytest
-
 from . import hpysettings
 
 # 测试数据
@@ -34,6 +32,12 @@ instance_toml_settings_file = hpysettings.load(
 
 instance_yaml_settings_file = hpysettings.load(
     settings_dir_path=setting_file_path,
+    settings_file_name=yaml_file_name.split(".")[0],
+    settings_file_format=yaml_file_name.split(".")[1],
+)
+
+instance_yaml_settings_file2 = hpysettings.load(  # 测试settings_dir_path置空
+    settings_dir_path="",
     settings_file_name=yaml_file_name.split(".")[0],
     settings_file_format=yaml_file_name.split(".")[1],
 )

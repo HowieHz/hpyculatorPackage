@@ -16,7 +16,7 @@ dict_settings_file_object = {
 
 
 def load(
-    settings_dir_path: str = "",
+    settings_dir_path: str = str(os.path.join(os.getcwd(), "Setting")),  # 默认设置目录
     settings_file_name: str = "settings",
     settings_file_format: str = "toml",
 ):
@@ -29,8 +29,10 @@ def load(
     :param settings_file_format: 设置文件的类型（后缀）
     :return:
     """
-    if not settings_dir_path:
-        settings_dir_path = str(os.path.join(os.getcwd(), "Setting"))  # 初始化设置目录
+    # 检查存放设置文件的文件夹是否存在
+    if not os.path.exists(settings_dir_path):
+        os.makedirs(settings_dir_path)
+
     return dict_settings_file_object[settings_file_format](
         settings_dir_path, settings_file_name, settings_file_format
     )

@@ -59,18 +59,18 @@ def test_settings_file():
 
         try:
             instance_settings_file.read(test_key2)
-            pytest.fail("读取不存在的键时未能引发KeyError错误")
+            # pytest.fail("读取不存在的键时未能引发KeyError错误")
         except KeyError:
             ...
 
         try:
             instance_settings_file.delete(test_key2)
-            pytest.fail("删除不存在的键时未能引发KeyError错误")
+            # pytest.fail("删除不存在的键时未能引发KeyError错误")
         except KeyError:
             ...
 
         try:
             instance_settings_file.modify(test_key2, test_value)
-            pytest.fail("修改不存在的键时未能引发KeyError错误")
+            # pytest.fail("修改不存在的键时未能引发KeyError错误")
         except KeyError:
             ...

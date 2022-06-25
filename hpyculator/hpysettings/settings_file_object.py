@@ -15,9 +15,9 @@ class SettingsFileObject(ABC):
         """
         读取一个文件laod
 
-        :param settings_dir_path: 设置文件目录
-        :param settings_file_name: 设置文件名
-        :param settings_file_format: 设置文件猴嘴
+        :param str settings_dir_path: 设置文件目录
+        :param str settings_file_name: 设置文件名
+        :param str settings_file_format: 设置文件猴嘴
         """
         self._setting_dir_path = settings_dir_path
 
@@ -43,8 +43,8 @@ class SettingsFileObject(ABC):
         """
         添加一项配置
 
-        :param key:
-        :param value:
+        :param str key: 键
+        :param Any value: 值
         :return: self
         """
 
@@ -53,8 +53,10 @@ class SettingsFileObject(ABC):
         """
         读取一项配置
 
-        :param key:
-        :return:
+        :param str key: 键
+        :return: value 值
+        :rtype: Any
+        :raises keyError: 没有这个键
         """
         if not self.exists(key):
             raise KeyError
@@ -64,7 +66,8 @@ class SettingsFileObject(ABC):
         """
         读取全部的
 
-        :return:
+        :return: key-value
+        :rtype: dict
         """
 
     @abstractmethod
@@ -72,8 +75,9 @@ class SettingsFileObject(ABC):
         """
         删除一项配置
 
-        :param key:
+        :param key: 键
         :return: self
+        :raises keyError: 没有这个键
         """
         if not self.exists(key):
             raise KeyError
@@ -83,9 +87,10 @@ class SettingsFileObject(ABC):
         """
         修改一项配置
 
-        :param key:
-        :param value:
+        :param key: 键
+        :param value: 值
         :return: self
+        :raises keyError: 没有这个键
         """
         if not self.exists(key):
             raise KeyError
@@ -95,8 +100,9 @@ class SettingsFileObject(ABC):
         """
         检查一个键是否存在
 
-        :param key:
-        :return:
+        :param str key: 键
+        :return: 存在为True，不存在为False
+        :rtype: bool
         """
         return False
 
@@ -105,6 +111,7 @@ class SettingsFileObject(ABC):
         """
         设置文件的路径
 
-        :return:
+        :return: 设置文件的路径
+        :rtype: str
         """
         return self._settings_file_path

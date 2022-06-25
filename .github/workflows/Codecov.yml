@@ -26,11 +26,12 @@ jobs:
       uses: codecov/codecov-action@v3.1.0
       with:
         # token: ${{ secrets.CODECOV_TOKEN }}
+        # directory: ./coverage/reports/
         directory: ./coverage/reports/
         env_vars: OS,PYTHON
         fail_ci_if_error: true
-        files: ./coverage1.xml,./coverage2.xml
-        flags: unittests
+        files: ./coverage.xml
+        flags: pytest
         name: codecov-umbrella
         # override_branch: dev
         path_to_write_report: ./coverage/codecov_report.txt

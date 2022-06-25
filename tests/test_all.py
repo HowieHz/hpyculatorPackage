@@ -1,7 +1,7 @@
+import os
 import tempfile
 from random import randint
 from typing import IO, Any, AnyStr
-import os
 
 print(os.getcwd())
 import pytest

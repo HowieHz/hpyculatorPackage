@@ -1,2 +1,5 @@
 [run]
+cover_pylib = True
 source = hpyculator
+omit =
+    setup.py

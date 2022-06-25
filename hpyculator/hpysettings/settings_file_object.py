@@ -4,6 +4,8 @@ from typing import Any
 
 
 class SettingsFileObject(ABC):
+    """设置文件的基类，要新支持一种格式就继承这个抽象类"""
+
     def __init__(
         self,
         settings_dir_path: str,

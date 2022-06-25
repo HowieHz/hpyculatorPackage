@@ -43,5 +43,4 @@ def flatten_no_recursion(sequence: Union[list, tuple]) -> list:
     while True:
         if all(not isinstance(_, list) for _ in sequence):  # 全不是列表
             return sequence
-        else:
-            sequence = flatten_layer(sequence)
+        sequence = flatten_layer(sequence)

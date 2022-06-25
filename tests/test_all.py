@@ -3,6 +3,7 @@ from random import randint
 from typing import IO, Any, AnyStr
 
 import pytest
+
 from . import hpycore, hpydecorator, hpyfunc
 from .hpysignal import instance_main_win_signal as main_signal
 

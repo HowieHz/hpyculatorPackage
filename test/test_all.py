@@ -61,7 +61,7 @@ def test_hpysignal():
     assert test_reflect == test_data
 
     main_signal.clear_output_box.emit()
-    assert test_reflect == None
+    assert test_reflect is None
 
     main_signal.append_output_box.emit(test_data)
     assert test_reflect == test_data
@@ -76,7 +76,7 @@ def test_hpysignal():
     assert test_reflect == test_data
 
     main_signal.get_output_box.emit()
-    assert test_reflect == None
+    assert test_reflect is None
 
     main_signal.set_start_button_text.emit(test_data)
     assert test_reflect == test_data
@@ -88,7 +88,7 @@ def test_hpysignal():
     assert test_reflect == test_data
 
     main_signal.draw_background.emit()
-    assert test_reflect == None
+    assert test_reflect is None
 
 
 @pytest.mark.run(order=2)
@@ -113,7 +113,7 @@ def test_hpycore():
     assert test_reflect == test_data
 
     hpycore.clearOutput()
-    assert test_reflect == None
+    assert test_reflect is None
 
     hpycore.output_without_line_break(test_data)
     assert test_reflect == test_data

@@ -29,10 +29,6 @@ def load(
     :param settings_file_format: 设置文件的类型（后缀）
     :return:
     """
-    # 检查存放设置文件的文件夹是否存在
-    if not os.path.exists(settings_dir_path):
-        os.makedirs(settings_dir_path)
-
     return dict_settings_file_object[settings_file_format](
         settings_dir_path, settings_file_name, settings_file_format
     )

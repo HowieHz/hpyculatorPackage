@@ -19,6 +19,11 @@ class SettingsFileObject(ABC):
         :param str settings_file_name: 设置文件名
         :param str settings_file_format: 设置文件猴嘴
         """
+        self._setting_dir_path = settings_dir_path
+        # 检查存放设置文件的文件夹是否存在
+        if not os.path.exists(self._setting_dir_path):
+            os.makedirs(self._setting_dir_path)
+
         # 初始化设置文件位置
         self._settings_file_path = str(
             os.path.join(

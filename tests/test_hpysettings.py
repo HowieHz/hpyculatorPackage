@@ -36,12 +36,6 @@ instance_yaml_settings_file = hpysettings.load(
     settings_file_format=yaml_file_name.split(".")[1],
 )
 
-instance_yaml_settings_file2 = hpysettings.load(  # 测试settings_dir_path置空
-    settings_dir_path="",
-    settings_file_name=yaml_file_name.split(".")[0],
-    settings_file_format=yaml_file_name.split(".")[1],
-)
-
 
 def test_settings_file():
     """

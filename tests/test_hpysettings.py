@@ -1,12 +1,13 @@
 import os
 import random
+import time
 
 import pytest
 
 from . import hpysettings
 
 # 测试数据
-setting_file_path = os.path.join(os.getcwd(), "settings_file_dir")
+setting_file_path = os.path.join(os.getcwd(), "settings_file_dir", str(time.time_ns()))
 test_text = random.randint(0, 9999)
 test_key = str(random.randint(0, 9999)) + str("test_key")
 test_key2 = str(random.randint(0, 9999)) + str("test_key2")

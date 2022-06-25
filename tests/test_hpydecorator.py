@@ -1,3 +1,5 @@
+from random import randint
+
 from . import hpydecorator
 
 # 测试数据

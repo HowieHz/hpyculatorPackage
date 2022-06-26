@@ -31,6 +31,7 @@ instance_io = io()  # 创建实例
 
 # 测试数据
 num = randint(0, 99999)
+str_num = str(num)
 test_data = str(num) + "test_data"
 test_bool = True
 
@@ -134,6 +135,10 @@ def test_hpycore():
 
     hpycore.output_without_line_break(test_data)
     assert test_reflect == test_data
+    hpycore.output_without_line_break(num)
+    assert test_reflect == str_num
 
     hpycore.output(test_data)
     assert test_reflect == test_data
+    hpycore.output(num)
+    assert test_reflect == str_num

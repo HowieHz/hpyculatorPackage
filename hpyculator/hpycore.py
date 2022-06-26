@@ -60,7 +60,10 @@ def output(anything: Any) -> None:
     :param Any anything: 要输出到框体的数据
     :return: None
     """
-    instance_main_win_signal.append_output_box.emit(str(anything))
+    if isinstance(anything, str):
+        instance_main_win_signal.append_output_box.emit(anything)
+    else:
+        instance_main_win_signal.append_output_box.emit(str(anything))
 
 
 def output_without_line_break(anything: Any) -> None:
@@ -70,7 +73,10 @@ def output_without_line_break(anything: Any) -> None:
     :param Any anything: 要输出到框体的数据
     :return: None
     """
-    instance_main_win_signal.insert_output_box.emit(str(anything))
+    if isinstance(anything, str):  # 比直接str(anything)快
+        instance_main_win_signal.insert_output_box.emit(anything)
+    else:
+        instance_main_win_signal.insert_output_box.emit(str(anything))
 
 
 def clearOutput() -> None:

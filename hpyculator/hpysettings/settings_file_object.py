@@ -1,6 +1,7 @@
 import os
 from abc import ABC, abstractmethod
 from typing import Any
+from __future__ import annotations
 
 
 class SettingsFileObject(ABC):
@@ -12,12 +13,14 @@ class SettingsFileObject(ABC):
         settings_file_name: str = "settings",
         settings_file_format: str = "",
     ):
-        """
-        读取一个文件laod
+        """读取一个文件, 初始化文件对象
 
-        :param str settings_dir_path: 设置文件目录
-        :param str settings_file_name: 设置文件名
-        :param str settings_file_format: 设置文件猴嘴
+        :param settings_dir_path: 设置文件所在的目录
+        :type settings_dir_path: str
+        :param settings_file_name: 设置文件的名称, 默认为"settings"
+        :type settings_file_name: str
+        :param settings_file_format: 设置文件的后缀, 默认为""
+        :type settings_file_format: str
         """
         self._setting_dir_path = settings_dir_path
         # 检查存放设置文件的文件夹是否存在
@@ -38,57 +41,61 @@ class SettingsFileObject(ABC):
         self._settings_file_stream.close()
 
     @abstractmethod
-    def add(self, key: str, value: Any):
-        """
-        添加一项配置
+    def add(self, key: str, value: Any) -> SettingsFileObject:
+        """添加一项配置
 
-        :param str key: 键
-        :param Any value: 值
-        :return: self
+        :param key: 键
+        :type key: str
+        :param value: 值
+        :type value: Any
+        :return: 链式调用, 返回本身
+        :rtype: SettingsFileObject
         """
 
     @abstractmethod
-    def read(self, key: str):
-        """
-        读取一项配置
+    def read(self, key: str) -> Any:
+        """读取一项配置
 
-        :param str key: 键
-        :return: value 值
+        :param key: 键
+        :type key: str
+        :return: 值
         :rtype: Any
-        :raises keyError: 没有这个键
+        :raises KeyError: 没有这个键
         """
         if not self.exists(key):
             raise KeyError
 
     @abstractmethod
     def readAll(self):
-        """
-        读取全部的
+        """读取全部的
 
-        :return: key-value
+        :return: 键值对
         :rtype: dict
         """
 
     @abstractmethod
     def delete(self, key: str):
-        """
-        删除一项配置
+        """删除一项配置
 
         :param key: 键
-        :return: self
-        :raises keyError: 没有这个键
+        :type key: str
+        :return: 链式调用, 返回本身
+        :rtype: SettingsFileObject
+        :raises KeyError: 没有这个键
         """
         if not self.exists(key):
             raise KeyError
 
     @abstractmethod
     def modify(self, key: str, value: Any):
-        """
-        修改一项配置
+        """修改一项配置
 
         :param key: 键
+        :type key: str
         :param value: 值
-        :return: self
+        :type value: Any
+        :return: 链式调用, 返回本身
+        :rtype: SettingsFileObject
         :raises keyError: 没有这个键
         """
         if not self.exists(key):
@@ -96,18 +103,17 @@ class SettingsFileObject(ABC):
 
     @abstractmethod
     def exists(self, key: str) -> bool:
-        """
-        检查一个键是否存在
+        """检查一个键是否存在
 
-        :param str key: 键
-        :return: 存在为True，不存在为False
+        :param key: 键
+        :type key: str
+        :return: 存在为True, 不存在为False
         :rtype: bool
         """
 
     @property
     def setting_file_path(self) -> str:
-        """
-        设置文件的路径
+        """设置文件的路径
 
         :return: 设置文件的路径
         :rtype: str

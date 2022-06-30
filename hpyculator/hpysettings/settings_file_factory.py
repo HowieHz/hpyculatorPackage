@@ -20,14 +20,17 @@ def load(
     settings_file_name: str = "settings",
     settings_file_format: str = "toml",
 ):
-    """
-    加载一个设置文件对象
+    """加载一个设置文件对象
     工厂函数
 
-    :param settings_dir_path: 设置文件所在目录
-    :param settings_file_name: 设置文件的文件名
-    :param settings_file_format: 设置文件的类型（后缀）
-    :return:
+    :param settings_dir_path: 设置文件所在目录, 默认是 str(os.path.join(os.getcwd(), "Setting"))
+    :type settings_dir_path: str
+    :param settings_file_name: 设置文件的文件名, 默认是"settings"
+    :type settings_file_name: str
+    :param settings_file_format: 设置文件的类型(后缀), 默认是"toml"
+    :type settings_file_format: str
+    :return: 设置文件实例
+    :rtype: TomlSettingsFileObject | JsonSettingsFileObject | YamlSettingsFileObject
     """
     return dict_settings_file_object[settings_file_format](
         settings_dir_path, settings_file_name, settings_file_format

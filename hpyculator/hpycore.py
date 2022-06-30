@@ -1,6 +1,5 @@
-from typing import IO, Any, Optional
-
 from queue import Queue
+from typing import IO, Any, Optional
 
 io_instance: Optional[IO] = None  # 我想用类属性的，但是时间给我干到原来的三倍，傻眼了
 output_data: Optional[str] = None  # 测试用的，获取输出框的数据

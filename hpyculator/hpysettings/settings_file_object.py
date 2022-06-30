@@ -1,7 +1,8 @@
+from __future__ import annotations
+
 import os
 from abc import ABC, abstractmethod
 from typing import Any
-from __future__ import annotations
 
 
 class SettingsFileObject(ABC):

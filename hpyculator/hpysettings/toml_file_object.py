@@ -1,6 +1,7 @@
 """用于创建toml文件对象"""
-from typing import Any
 from __future__ import annotations
+
+from typing import Any
 
 import rtoml as toml
 

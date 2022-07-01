@@ -15,7 +15,10 @@ dict_settings_file_object = {
     "yaml": YamlSettingsFileObject,
 }
 
-SettingsFileObject = Union[JsonSettingsFileObject, YamlSettingsFileObject, TomlSettingsFileObject]
+SettingsFileObject = Union[
+    JsonSettingsFileObject, YamlSettingsFileObject, TomlSettingsFileObject
+]
+
 
 def load(
     settings_dir_path: str = str(os.path.join(os.getcwd(), "Setting")),  # 默认设置目录

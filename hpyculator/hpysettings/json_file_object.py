@@ -1,7 +1,8 @@
 """用于创建json文件对象"""
+from __future__ import annotations
+
 import json
 from typing import Any
-from __future__ import annotations
 
 from .settings_file_object import SettingsFileObject
 

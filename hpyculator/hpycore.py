@@ -19,12 +19,12 @@ RETURN_ITERABLE = 1 << 1
 NO_RETURN = 1 << 3
 NO_RETURN_SINGLE_FUNCTION = 1 << 4
 
-message_queue = Queue()  # 输出消息 保证里面取出来的数据类型一定是str
+message_queue: Queue = Queue()  # 输出消息 保证里面取出来的数据类型一定是str
 # OutputReachedLimit
 # CalculationProgramIsRunning
 # CalculationProgramIsFinished（下一条消息是所用时间，类型int，单位ns）
-output_queue = Queue()  # 输出结果 生产者-消费者模型 保证里面取出来的数据类型一定是str
-error_queue = Queue()  # 输出错误 保证里面取出来的数据类型一定是str
+output_queue: Queue = Queue()  # 输出结果 生产者-消费者模型 保证里面取出来的数据类型一定是str
+error_queue: Queue = Queue()  # 输出错误 保证里面取出来的数据类型一定是str
 # TypeConversionError
 # CalculationError
 

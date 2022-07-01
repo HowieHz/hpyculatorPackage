@@ -3,6 +3,7 @@
 # ini X
 
 import os
+from typing import Union
 
 from .json_file_object import JsonSettingsFileObject
 from .toml_file_object import TomlSettingsFileObject
@@ -14,12 +15,13 @@ dict_settings_file_object = {
     "yaml": YamlSettingsFileObject,
 }
 
+SettingsFileObject = Union[JsonSettingsFileObject, YamlSettingsFileObject, TomlSettingsFileObject]
 
 def load(
     settings_dir_path: str = str(os.path.join(os.getcwd(), "Setting")),  # 默认设置目录
     settings_file_name: str = "settings",
     settings_file_format: str = "toml",
-):
+) -> SettingsFileObject:
     """加载一个设置文件对象
     工厂函数
 

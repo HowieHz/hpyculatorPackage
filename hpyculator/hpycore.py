@@ -87,7 +87,7 @@ def setIoInstance(instance: IO) -> None:
     :param instance: io实例
     """
     global io_instance
-    io_instance: IO = instance
+    io_instance = instance
 
 
 def getIoInstance() -> IO:

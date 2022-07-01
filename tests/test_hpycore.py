@@ -6,7 +6,7 @@ import pytest
 
 # # 这样才可以导入上层包哈哈
 # sys.path.append(os.path.join(sys.path[0], ".."))
-from . import hpycore
+from . import hpycore, output_queue
 
 test_buffer: Any = 0  # 初始化一个变量，用于检测结果
 test_reflect: Any = 0  # 初始化一个变量，用于检测结果
@@ -55,12 +55,7 @@ def test_hpycore():
     hpycore.flush()
     assert test_reflect == f"{test_data}\n"
 
-    hpycore.output_without_line_break(test_data)
-    assert test_reflect == test_data
-    hpycore.output_without_line_break(num)
-    assert test_reflect == str_num
-
     hpycore.output(test_data)
-    assert test_reflect == test_data
+    assert output_queue.get() == test_data
     hpycore.output(num)
-    assert test_reflect == str_num
+    assert output_queue.get() == str_num

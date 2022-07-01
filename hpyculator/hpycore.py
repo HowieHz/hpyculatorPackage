@@ -67,17 +67,6 @@ def output(anything: Any) -> None:
         output_queue.put(str(anything))
 
 
-def output_without_line_break(anything: Any) -> None:
-    """输出到框体，但是不换行
-
-    :param anything: 要输出到框体的数据
-    """
-    if isinstance(anything, str):  # 比直接str(anything)快
-        output_queue.put(anything)
-    else:
-        output_queue.put(str(anything))
-
-
 # 以下是用来传递数据的
 
 

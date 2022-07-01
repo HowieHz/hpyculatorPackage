@@ -115,22 +115,6 @@
     load函数用于创建一个设置文件对象（返回一个创建好的设置文件对象）
     设置文件对象的add，delete，modify方法支持链式调用
 
-### hpysignal
-
-    instance_main_win_signal用于操作主窗口
-        set_output_box设置输出窗口文字，传入一个参数(str)
-        clear_output_box清空输出窗口文字
-        append_output_box追加输出窗口文字，传入一个参数(str)
-
-        set_start_button_text设置开始按钮上的文字，传入一个参数(str)
-        set_start_button_state设置开始按钮是否启用，传入一个参数(bool)
-
-        set_output_box_cursor设置输出窗口的指针位置，传入一个参数(str)
-
-    使用方法：
-        instance_main_win_signal.clear_output_box.emit()
-        instance_main_win_signal.set_output_box.emit("text")
-
 ### hpyfunc
     
     def flatten(sequence: Union[list, tuple]) -> list:

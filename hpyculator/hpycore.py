@@ -24,8 +24,6 @@ message_queue: Queue = Queue()  # 输出消息 保证里面取出来的数据类
 # OutputReachedLimit
 # CalculationProgramIsRunning
 # CalculationProgramIsFinished（下一条消息是所用时间，类型int，单位ns）
-output_queue: Queue = Queue()  # 输出结果 生产者-消费者模型 保证里面取出来的数据类型一定是str
-error_queue: Queue = Queue()  # 输出错误 保证里面取出来的数据类型一定是str
 # TypeConversionError
 # CalculationError
 
@@ -61,9 +59,9 @@ def output(anything: Any) -> None:
     :param anything: 要输出到框体的数据
     """
     if isinstance(anything, str):
-        output_queue.put(anything)
+        message_queue.put(("OUTPUT", anything))
     else:
-        output_queue.put(str(anything))
+        message_queue.put(("OUTPUT", str(anything)))
 
 
 # 以下是用来传递数据的

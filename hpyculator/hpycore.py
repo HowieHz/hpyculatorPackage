@@ -1,8 +1,10 @@
 from queue import Queue
 from typing import IO, Any, Optional
 
-io_instance: Optional[IO] = None  # 我想用类属性的，但是时间给我干到原来的三倍，傻眼了
-output_data: Optional[str] = None  # 测试用的，获取输出框的数据
+io_instance = None  # 我想用类属性的，但是时间给我干到原来的三倍，傻眼了
+# 不加type hint的原因https://github.com/python/cpython/issues/79120
+# https://stackoverflow.com/questions/60466092/why-does-order-of-declaration-matter-for-annotated-global-variables-in-modules
+output_data = None  # 测试用的，获取输出框的数据
 
 STRING = 1 << 0
 NUM = 1 << 1

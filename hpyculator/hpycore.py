@@ -1,5 +1,5 @@
 from queue import Queue
-from typing import IO, Any, Optional
+from typing import IO, Any
 
 io_instance = None  # 我想用类属性的，但是时间给我干到原来的三倍，傻眼了
 # 不加type hint的原因https://github.com/python/cpython/issues/79120

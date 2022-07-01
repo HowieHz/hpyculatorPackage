@@ -4,7 +4,6 @@ from typing import IO, Any
 io_instance = None  # 我想用类属性的，但是时间给我干到原来的三倍，傻眼了
 # 不加type hint的原因https://github.com/python/cpython/issues/79120
 # https://stackoverflow.com/questions/60466092/why-does-order-of-declaration-matter-for-annotated-global-variables-in-modules
-output_data = None  # 测试用的，获取输出框的数据
 
 STRING = 1 << 0
 NUM = 1 << 1
@@ -38,8 +37,8 @@ def write(anything: Any, end: str = "\n") -> None:
     :param anything: 要写入的东西
     :param end: 每次写入在末尾追加的东西，默认为"\n"
     """
-    io_instance.write(str(anything) + end)
-    io_instance.flush()
+    io_instance.write(str(anything) + end)  # type: ignore
+    io_instance.flush()  # type: ignore
 
 
 def write_without_flush(anything: Any, end: str = "\n") -> None:
@@ -48,12 +47,12 @@ def write_without_flush(anything: Any, end: str = "\n") -> None:
     :param anything: 要写入的东西
     :param end: 每次写入在末尾追加的东西，默认为"\n"
     """
-    io_instance.write(str(anything) + end)
+    io_instance.write(str(anything) + end)  # type: ignore
 
 
 def flush() -> None:
     """用于刷新缓存区(将缓存区中的数据写入硬盘)"""
-    io_instance.flush()
+    io_instance.flush()  # type: ignore
 
 
 def output(anything: Any) -> None:
@@ -84,13 +83,7 @@ def getIoInstance() -> IO:
 
     :return: io实例
     """
-    return io_instance
-
-
-def setOutPutData(data: str) -> None:
-    """设置output_data这个变量"""
-    global output_data
-    output_data = data
+    return io_instance  # type: ignore  # 难以详细的标出IO类型
 
 
 def addOne(num: int) -> int:

@@ -18,7 +18,7 @@ class io(IO):
     def __init__(self):
         ...
 
-    def write(self, text: AnyStr) -> None:
+    def write(self, text: AnyStr) -> None:  # type: ignore
         global test_buffer
         test_buffer = text
 
@@ -27,7 +27,7 @@ class io(IO):
         test_reflect = test_buffer
 
 
-instance_io = io()  # 创建实例
+instance_io = io()  # type: ignore # 创建实例 __enter__和__exit__方法测试用不到就算了
 
 # 测试数据
 num = randint(0, 99999)

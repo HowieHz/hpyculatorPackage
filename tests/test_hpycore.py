@@ -1,12 +1,9 @@
-import tempfile
 from random import randint
 from typing import IO, Any, AnyStr
 
-import pytest
-
 # # 这样才可以导入上层包哈哈
 # sys.path.append(os.path.join(sys.path[0], ".."))
-from . import hpycore, output_queue
+from . import hpycore, _message_queue
 
 test_buffer: Any = 0  # 初始化一个变量，用于检测结果
 test_reflect: Any = 0  # 初始化一个变量，用于检测结果
@@ -42,7 +39,6 @@ def test_hpycore():
 
     :return:
     """
-    assert (num + 1) == hpycore.addOne(num)
 
     hpycore.setIoInstance(instance_io)
     assert instance_io == hpycore.getIoInstance()
@@ -56,6 +52,6 @@ def test_hpycore():
     assert test_reflect == f"{test_data}\n"
 
     hpycore.output(test_data)
-    assert output_queue.get() == test_data
+    assert _message_queue.get() == test_data
     hpycore.output(num)
-    assert output_queue.get() == str_num
+    assert _message_queue.get() == str_num

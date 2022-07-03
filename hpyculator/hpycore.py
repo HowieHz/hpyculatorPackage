@@ -8,7 +8,6 @@ io_instance = None  # 我想用类属性的，但是时间给我干到原来的�
 STRING = 1 << 0
 NUM = 1 << 1
 FLOAT = 1 << 2
-LIST = 1 << 3
 
 ON = 1 << 1
 OFF = 1 << 0  # 因为没读到就用这个作为缺省，所以每个参数的(1<<0)就是缺省
@@ -20,7 +19,7 @@ RETURN_ITERABLE = 1 << 1
 NO_RETURN = 1 << 3
 NO_RETURN_SINGLE_FUNCTION = 1 << 4
 
-message_queue: Queue = Queue()  # 输出消息 保证里面取出来的数据类型一定是str
+_message_queue: Queue = Queue()  # 输出消息 保证里面取出来的数据类型一定是str
 # OutputReachedLimit
 # CalculationProgramIsRunning
 # CalculationProgramIsFinished（下一条消息是所用时间，类型int，单位ns）
@@ -59,9 +58,9 @@ def output(anything: Any) -> None:
     :param anything: 要输出到框体的数据
     """
     if isinstance(anything, str):
-        message_queue.put(("OUTPUT", anything))
+        _message_queue.put(("OUTPUT", anything))
     else:
-        message_queue.put(("OUTPUT", str(anything)))
+        _message_queue.put(("OUTPUT", str(anything)))
 
 
 # 以下是用来传递数据的
@@ -82,12 +81,3 @@ def getIoInstance() -> IO:
     :return: io实例
     """
     return io_instance  # type: ignore  # 难以详细的标出IO类型
-
-
-def addOne(num: int) -> int:
-    """用于测试的函数，会输出输入数字+1的结果
-
-    :param num: 一个数字
-    :return: 输入+1
-    """
-    return num + 1

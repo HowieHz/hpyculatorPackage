@@ -1,1 +1,1 @@
-from hpyculator import hpycore, hpydecorator, hpyfunc, hpysettings, _message_queue
+from hpyculator import _message_queue, hpycore, hpydecorator, hpyfunc, hpysettings

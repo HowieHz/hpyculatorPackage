@@ -3,7 +3,7 @@ from typing import IO, Any, AnyStr
 
 # # 这样才可以导入上层包哈哈
 # sys.path.append(os.path.join(sys.path[0], ".."))
-from . import hpycore, _message_queue
+from . import _message_queue, hpycore
 
 test_buffer: Any = 0  # 初始化一个变量，用于检测结果
 test_reflect: Any = 0  # 初始化一个变量，用于检测结果

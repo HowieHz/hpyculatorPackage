@@ -34,8 +34,7 @@ test_bool = True
 
 
 def test_hpycore():
-    """
-    测试hpycore模块
+    """测试hpycore模块
 
     :return:
     """
@@ -52,6 +51,6 @@ def test_hpycore():
     assert test_reflect == f"{test_data}\n"
 
     hpycore.output(test_data)
-    assert _message_queue.get() == test_data
+    assert _message_queue.get() == ("OUTPUT", test_data)
     hpycore.output(num)
-    assert _message_queue.get() == str_num
+    assert _message_queue.get() == ("OUTPUT", str_num)

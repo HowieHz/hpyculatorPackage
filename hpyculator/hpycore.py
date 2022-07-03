@@ -28,8 +28,7 @@ _message_queue: Queue = Queue()  # 输出消息 保证里面取出来的数据�
 
 
 def write(anything: Any, end: str = "\n") -> None:
-    """
-    用于向指定的文件流写入，每次写入之后立即刷新缓存区（立即写入硬盘）
+    r"""用于向指定的文件流写入，每次写入之后立即刷新缓存区（立即写入硬盘）
 
     :param anything: 要写入的东西
     :param end: 每次写入在末尾追加的东西，默认为"\n"
@@ -39,7 +38,7 @@ def write(anything: Any, end: str = "\n") -> None:
 
 
 def write_without_flush(anything: Any, end: str = "\n") -> None:
-    """用于向指定的文件流写入, 每次写入之后不刷新缓存区, 需要手动刷新(使用flush函数)
+    r"""用于向指定的文件流写入, 每次写入之后不刷新缓存区, 需要手动刷新(使用flush函数)
 
     :param anything: 要写入的东西
     :param end: 每次写入在末尾追加的东西，默认为"\n"

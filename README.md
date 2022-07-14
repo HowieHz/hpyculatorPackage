@@ -112,7 +112,7 @@
         isChange
         一个装饰器, 用来计算函数是否被修改
 
-        :param hash: 预先计算的hash值, 默认为0
+        :param hash: 预先计算的hash值, 默认为"0"
         :param ignore_line: 忽略函数的前几行不进行hash计算, 默认为1
         :param show_hash: 是否输出本次计算的hash值, 默认为False
 

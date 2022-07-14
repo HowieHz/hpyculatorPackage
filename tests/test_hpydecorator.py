@@ -26,7 +26,7 @@ def test_hpydecorator():
     assert (test_data, "_fun2") == _fun2(test_data)
 
     @hpydecorator.isChange(
-        hash="",
+        hash="0",
         ignore_line=4,
         show_hash=True,
     )

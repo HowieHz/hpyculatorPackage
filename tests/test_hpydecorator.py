@@ -24,3 +24,31 @@ def test_hpydecorator():
         return text, __fun_name__
 
     assert (test_data, "_fun2") == _fun2(test_data)
+
+    @hpydecorator.isChange(
+        hash="",
+        ignore_line=4,
+        show_hash=True,
+    )
+    def _fun3() -> None:
+        """func
+
+        :return: None
+        """
+        print("hello")
+
+    assert _fun3()[1] is True  # 代码被修改
+
+    @hpydecorator.isChange(
+        hash="b43a3a7707a994190404a6d10a43cb2bae695289e158560f9a4f89c4",
+        ignore_line=4,
+        show_hash=False,
+    )
+    def _fun4() -> None:
+        """func
+
+        :return: None
+        """
+        print("hello")
+
+    assert _fun4()[1] is True  # 代码未被修改

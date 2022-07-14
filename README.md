@@ -20,7 +20,7 @@
 ## 子模块
 
 ### hpycore
-    
+
     常量：
     STRING = 1 << 0
     NUM = 1 << 1
@@ -109,6 +109,13 @@
         :return: 一个函数
         """
 
+        isChange
+        一个装饰器, 用来计算函数是否被修改
+
+        :param hash: 预先计算的hash值, 默认为0
+        :param ignore_line: 忽略函数的前几行不进行hash计算, 默认为1
+        :param show_hash: 是否输出本次计算的hash值, 默认为False
+
 ### hpysettings
 
     用于快捷管理json，yaml，toml设置文件
@@ -116,7 +123,7 @@
     设置文件对象的add，delete，modify方法支持链式调用
 
 ### hpyfunc
-    
+
     def flatten(sequence: Union[list, tuple]) -> list:
     """
     将多维数据结构展平为一纬数据结构

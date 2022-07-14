@@ -1,4 +1,6 @@
 import time
+import inspect
+import hashlib
 from typing import Any, Callable, Tuple
 
 
@@ -60,3 +62,50 @@ def funName(fun: Callable) -> Callable:
         return fun(*args, __fun_name__=name, **kwargs)
 
     return ret_fun
+
+
+def isChange(hash: int = 0, ignore_line: int = 1, show_hash: bool = False) -> Callable:
+    """一个装饰器, 用来计算函数是否被修改
+
+    :param hash: 预先计算的hash值, 默认为0
+    :param ignore_line: 忽略函数的前几行不进行hash计算, 默认为1
+    :param show_hash: 是否输出本次计算的hash值, 默认为False
+    :return: 装饰器函数
+    """
+
+    def ruturnFun(fun: Callable) -> Callable:
+        """一个装饰器, 用来计算函数是否被修改
+
+        :param fun: 原函数
+        :return: 装饰器函数
+        """
+
+        def runFun(*args, **kwargs) -> tuple[Any, bool]:
+            """一个装饰器, 用来计算函数是否被修改
+
+            :return: 返回一个元组, 第一项为原返回值, 第二项是是否被修改, 被修改为True, 反之为False
+            """
+            is_change: bool = (
+                False
+                if (
+                    ret_check_code := hashlib.sha224(
+                        bytes(
+                            "".join(
+                                inspect.getsource(fun).split("\n")[ignore_line:]
+                            ).encode("utf-8")
+                        )
+                    ).hexdigest()
+                )
+                == hash
+                else True
+            )  # 获取函数源码 去掉第一行装饰器 再获取hash 最后检查计算出来的hash和输入的hash是否一致
+            if show_hash:
+                print(ret_check_code)
+
+            fun_ret = fun(*args, **kwargs)
+
+            return fun_ret, is_change
+
+        return runFun
+
+    return ruturnFun

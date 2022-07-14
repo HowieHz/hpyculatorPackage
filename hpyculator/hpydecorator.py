@@ -1,6 +1,6 @@
-import time
-import inspect
 import hashlib
+import inspect
+import time
 from typing import Any, Callable, Tuple
 
 
@@ -64,7 +64,9 @@ def funName(fun: Callable) -> Callable:
     return ret_fun
 
 
-def isChange(hash: str = "0", ignore_line: int = 1, show_hash: bool = False) -> Callable:
+def isChange(
+    hash: str = "0", ignore_line: int = 1, show_hash: bool = False
+) -> Callable:
     """一个装饰器, 用来计算函数是否被修改
 
     :param hash: 预先计算的hash值, 默认为"0"

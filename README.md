@@ -126,6 +126,7 @@
 
 ### hpyfunc
 
+#### flatten
     def flatten(sequence: Union[list, tuple]) -> list:
     """
     将多维数据结构展平为一纬数据结构
@@ -133,7 +134,8 @@
     :param sequence:
     :return: list
     """
-    
+
+#### flatten_layer
     def flatten_layer(sequence: Union[list, tuple]) -> list:
     """
     将多维数据结构展平一层
@@ -142,6 +144,7 @@
     :return: list
     """
 
+#### flatten_no_recursion
     def flatten_no_recursion(sequence: Union[list, tuple]) -> list:
     """
     将多维数据结构展平为一纬数据结构（无递归） 效率低很多

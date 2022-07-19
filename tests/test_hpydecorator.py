@@ -19,6 +19,16 @@ def test_hpydecorator():
     ret = _fun(test_data)
     assert ret[0] == test_data and isinstance(ret[1], int)
 
+    @hpydecorator.reRunTimes(
+        5,
+    )
+    def _fun(text: str):
+        nonlocal test_times
+        test_times += 1
+        return text
+
+    ret = _fun(test_data)
+
     @hpydecorator.funName
     def _fun2(text: str, __fun_name__: str):
         return text, __fun_name__

@@ -75,46 +75,48 @@
 ### hpydecorator
 
     实用装饰器
-        reRunTimes: 计量函数运行时间，并可以指定运行次数，如要运行5次 @reRunTimes(5)，返回值变为(原返回值，运行时间(单位ns))
-        def reRunTimes(times: int = 1) -> Callable:
-        """
-        一个装饰器，用来计算函数运行时长，这个函数是装饰器参数
-        
-        ---------------------------------------------
-        
-        返回一个元组：(原函数调用结果，ns为单位的运行时长)
-        
-        :param times: 运行次数，默认为1
-        :return Tuple: 原函数调用结果，ns为单位的运行时长
-        """       
+    
+#### reRunTimes: 计量函数运行时间，并可以指定运行次数，
+    
+    def reRunTimes(times: int = 1) -> Callable:
+    """一个装饰器, 用来计算函数运行时长, 第一个装饰器参数是运行次数
 
-        funName: 给原函数传入关键字参数__fun_name__，用于获取原函数名
-        funName(fun: Callable) -> Callable:
-        """
-        一个装饰器，函数形参增加__fun_name__用于获得函数名
-    
-        ---------------------------------------------
-    
-        使用方法：
-    
-        原函数
-            def a(c, b: int = 1):
-    
-        ->
-    
-        改成
-            def a(c, b: int = 1, __fun_name__):
-    
-        :param fun: 一个函数
-        :return: 一个函数
-        """
+    :param times: 运行次数, 默认为1
+    :param output: 是否输出到流, 默认为False
+    :return: 返回一个元组:(原函数调用结果, 总运行时长(ns为单位的))
+    """
 
-        isChange
-        一个装饰器, 用来计算函数是否被修改
+#### funName: 给原函数传入关键字参数__fun_name__，用于获取原函数名
 
-        :param hash: 预先计算的hash值, 默认为"0"
-        :param ignore_line: 忽略函数的前几行不进行hash计算, 默认为1
-        :param show_hash: 是否输出本次计算的hash值, 默认为False
+    def funName(fun: Callable) -> Callable:
+    """
+    一个装饰器，函数形参增加__fun_name__用于获得函数名
+
+    ---------------------------------------------
+
+    使用方法：
+
+    原函数
+        def a(c, b: int = 1):
+
+    ->
+
+    改成
+        def a(c, b: int = 1, __fun_name__):
+
+    :param fun: 一个函数
+    :return: 一个函数
+    """
+
+#### isChange
+    def isChange(hash: str = "0", ignore_line: int = 1, show_hash: bool = False)-> Callable:
+    """
+    一个装饰器, 用来计算函数是否被修改
+
+    :param hash: 预先计算的hash值, 默认为"0"
+    :param ignore_line: 忽略函数的前几行不进行hash计算, 默认为1
+    :param show_hash: 是否输出本次计算的hash值, 默认为False
+    """
 
 ### hpysettings
 

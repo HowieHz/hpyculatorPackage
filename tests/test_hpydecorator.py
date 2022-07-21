@@ -10,7 +10,7 @@ test_data = str(num) + "test_data"
 def test_hpydecorator():
     test_times: int = 0  # 初始化一个变量，用于检测结果
 
-    @hpydecorator.reRunTimes(5)
+    @hpydecorator.getRunTime(5)
     def _fun(text: str):
         nonlocal test_times
         test_times += 1
@@ -19,7 +19,7 @@ def test_hpydecorator():
     ret = _fun(test_data)
     assert ret[0] == test_data and isinstance(ret[1], int)
 
-    @hpydecorator.reRunTimes(
+    @hpydecorator.getRunTime(
         5,
     )
     def _fun(text: str):
@@ -29,7 +29,7 @@ def test_hpydecorator():
 
     ret = _fun(test_data)
 
-    @hpydecorator.funName
+    @hpydecorator.getFunName
     def _fun2(text: str, __fun_name__: str):
         return text, __fun_name__
 
@@ -50,7 +50,7 @@ def test_hpydecorator():
     assert _fun3()[1] is True  # 代码被修改
 
     @hpydecorator.isChange(
-        hash="b43a3a7707a994190404a6d10a43cb2bae695289e158560f9a4f89c4",
+        hash="5b0ad0d14da3144eb78b73c950320b145d3939d3ef60aa4d52616989",
         ignore_line=4,
         show_hash=False,
     )
@@ -61,4 +61,4 @@ def test_hpydecorator():
         """
         print("hello")
 
-    assert _fun4()[1] is True  # 代码未被修改
+    assert _fun4()[1] is False  # 代码未被修改

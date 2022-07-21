@@ -4,12 +4,15 @@ import time
 from typing import Any, Callable, Tuple
 
 
-def reRunTimes(times: int = 1, output: bool = False) -> Callable:
+def getRunTime(times: int = 1, output: bool = False) -> Callable:
     """一个装饰器, 用来计算函数运行时长, 第一个装饰器参数是运行次数
+
+    装饰后的函数将返回一个元组:(原函数返回值, 运行时长)
+    运行时长: 类型int, 单位ns
 
     :param times: 运行次数, 默认为1
     :param output: 是否输出到流, 默认为False
-    :return: 返回一个元组:(原函数调用结果, 总运行时长(ns为单位的))
+    :return: 装饰后的函数
     """
 
     def ruturnFun(fun: Callable) -> Callable:
@@ -37,23 +40,14 @@ def reRunTimes(times: int = 1, output: bool = False) -> Callable:
     return ruturnFun
 
 
-def funName(fun: Callable) -> Callable:
-    """一个装饰器, 函数形参增加__fun_name__用于获得函数名
-    ---------------------------------------------
+reRunTimes = getRunTime
 
-    使用方法:
 
-    原函数
-        def a(c, b: int = 1):
-
-    ->
-
-    改成
-        def a(c, b: int = 1, __fun_name__):
-
+def getFunName(fun: Callable) -> Callable:
+    """函数形参增加__fun_name__用于获得函数名
 
     :param fun: 原函数
-    :return: 函数运算结果
+    :return: 装饰后的函数
     """
     name = fun.__name__
 
@@ -67,6 +61,9 @@ def funName(fun: Callable) -> Callable:
     return ret_fun
 
 
+funName = getFunName
+
+
 def isChange(
     hash: str = "0", ignore_line: int = 1, show_hash: bool = False
 ) -> Callable:
@@ -75,7 +72,7 @@ def isChange(
     :param hash: 预先计算的hash值, 默认为"0"
     :param ignore_line: 忽略函数的前几行不进行hash计算, 默认为1
     :param show_hash: 是否输出本次计算的hash值, 默认为False
-    :return: 返回一个元组, 第一项为原返回值, 第二项是是否被修改, 被修改为True, 反之为False
+    :return: 装饰后的函数
     """
 
     def ruturnFun(fun: Callable) -> Callable:

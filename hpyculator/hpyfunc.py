@@ -13,6 +13,8 @@ def flatten(sequence: Union[list, tuple]) -> list:
             ret.extend(flatten(_))
         else:
             ret.append(_)
+
+    # [(flatten(_) if isinstance(_, list) else _) for _ in sequence]
     return ret
 
 
@@ -24,15 +26,12 @@ def flatten_layer(sequence: Union[list, tuple]) -> list:
     """
     ret = []
     for _ in sequence:
-        if isinstance(_, list):
-            ret.extend(_)
-        else:
-            ret.append(_)
+        ret.extend(_ if isinstance(_, list) else [_])
     return ret
 
 
-def flatten_no_recursion(sequence: Union[list, tuple]) -> list:
-    """将多维数据结构展平为一纬数据结构(无递归)效率低很多
+def flatten_no_recursion(sequence: Union[list, tuple]) -> Union[list, tuple]:
+    """将多维数据结构展平为一纬数据结构(无递归)
 
     :param sequence: 多维数据结构
     :return: 一纬数据结构

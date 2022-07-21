@@ -1,5 +1,5 @@
-from typing import Union
 from array import ArrayType
+from typing import Union
 
 
 def flatten(sequence: Union[list, tuple]) -> list:

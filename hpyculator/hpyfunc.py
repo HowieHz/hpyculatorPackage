@@ -1,5 +1,7 @@
-from typing import Union
+from typing import Union, Callable
 from array import ArrayType
+import hashlib
+import inspect
 
 
 def flatten(sequence: Union[list, tuple]) -> list:
@@ -61,3 +63,31 @@ def expand_dims(
     for n in dims:
         array = [array[i : i + n] for i in range(0, len(array), n)]
     return array[0]
+
+
+def easy_text_hash(text: str) -> str:
+    ret_num = 0
+    for char in text:
+        ret_num += ord(char)
+    if ret_num >= 1_0000:  # 控制在0-9999
+        ret_num = ret_num % 10000  # 取末四位
+    return str(ret_num)
+
+
+def dont_change_my_code(fun: Callable, sign: str) -> None:
+    """沙雕系列：别修改我的代码！
+    直接使用print输出hash值，未计算出结果则输出-1
+
+    :param fun: 不要修改这个函数！
+    :param sign: 标识符
+    :return: None
+    """
+    two_part_text = inspect.getsource(fun).split(sign)
+    if len(two_part_text) != 2:
+        raise TypeError("标识符应该只出现一次！", f"实际出现了{len(two_part_text)-1}次！")
+    for num in range(1_0000):
+        if easy_text_hash(two_part_text[0] + str(num) + two_part_text[1]) == str(num):
+            print(num)
+            break
+    else:
+        print(-1)

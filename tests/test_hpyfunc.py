@@ -16,7 +16,7 @@ def test_hpyfunc():
         if not easy_text_hash(inspect.getsource(fun_name_aaa)) == "!!!":  # ""里面的是标识符
             print("改了是吧，有你好果子吃")
 
-    assert "283" == hpyfunc.dont_change_my_code(fun=fun_name_aaa, sign="!!!")
-    assert "283" == hpyfunc.dont_change_my_code(
+    assert "1" == hpyfunc.dont_change_my_code(fun=fun_name_aaa, sign="!!!")
+    assert "1" == hpyfunc.dont_change_my_code(
         fun=fun_name_aaa, sign="!!!", hash_fun=easy_text_hash, multisign=True
     )

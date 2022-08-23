@@ -1,6 +1,5 @@
-from typing import Union, Callable
+from typing import Union, Callable, Optional
 from array import ArrayType
-import hashlib
 import inspect
 
 
@@ -65,29 +64,49 @@ def expand_dims(
     return array[0]
 
 
+a_range_num = 10 * 50
+
+
 def easy_text_hash(text: str) -> str:
     ret_num = 0
     for char in text:
-        ret_num += ord(char)
-    if ret_num >= 1_0000:  # 控制在0-9999
-        ret_num = ret_num % 10000  # 取末四位
-    return str(ret_num)
+        ret_num += ord(char) / 2
+    if ret_num >= a_range_num:  # 控制在0-99999
+        ret_num %= a_range_num  # 取末n位
+    return str(int(ret_num))
 
 
-def dont_change_my_code(fun: Callable, sign: str) -> None:
+def dont_change_my_code(
+    fun: Callable,
+    sign: str,
+    hash_fun: Optional[Callable[[str], Union[int, str]]] = None,
+    multisign: bool = False,
+) -> str:
     """沙雕系列：别修改我的代码！
-    直接使用print输出hash值，未计算出结果则输出-1
+    使用print为计算出的hash值，未计算出结果则输出-1
+    返回值也为计算出的hash值，未计算出结果则输出-1
 
     :param fun: 不要修改这个函数！
     :param sign: 标识符
-    :return: None
+    :param hash_fun: 你滴哈希函数，要求hash值范围在 0到(10 * 50 - 1)
+    :param multisign: 允许多个标识符
+    :return: hash值
     """
+    if not hash_fun:
+        hash_fun = easy_text_hash
+
     two_part_text = inspect.getsource(fun).split(sign)
-    if len(two_part_text) != 2:
+
+    if len(two_part_text) < 2:
+        raise TypeError("标识符应该至少出现一次！", f"实际出现了{len(two_part_text) - 1}次！")
+
+    if len(two_part_text) != 2 and not multisign:
         raise TypeError("标识符应该只出现一次！", f"实际出现了{len(two_part_text)-1}次！")
-    for num in range(1_0000):
-        if easy_text_hash(two_part_text[0] + str(num) + two_part_text[1]) == str(num):
+
+    for num in range(a_range_num):
+        if hash_fun(str(num).join(two_part_text)) == str(num):
             print(num)
             break
     else:
         print(-1)
+    return str(num)

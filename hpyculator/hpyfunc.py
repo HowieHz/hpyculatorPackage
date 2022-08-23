@@ -1,7 +1,7 @@
-from typing import Union, Callable
-from array import ArrayType
 import hashlib
 import inspect
+from array import ArrayType
+from typing import Callable, Union
 
 
 def flatten(sequence: Union[list, tuple]) -> list:

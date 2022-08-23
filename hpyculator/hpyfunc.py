@@ -1,6 +1,6 @@
-from typing import Union, Callable, Optional
-from array import ArrayType
 import inspect
+from array import ArrayType
+from typing import Callable, Optional, Union
 
 
 def flatten(sequence: Union[list, tuple]) -> list:

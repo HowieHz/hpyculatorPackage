@@ -1,5 +1,6 @@
-from . import hpyfunc
 import inspect
+
+from . import hpyfunc
 
 
 def test_hpyfunc():

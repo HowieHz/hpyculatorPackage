@@ -87,20 +87,19 @@ def isChange(
 
             :return: 返回一个元组, 第一项为原返回值, 第二项是是否被修改, 被修改为True, 反之为False
             """
-            is_change: bool = (
-                False
-                if (
-                    ret_check_code := hashlib.sha224(
-                        bytes(
-                            "".join(
-                                inspect.getsource(fun).split("\n")[ignore_line:]
-                            ).encode("utf-8")
-                        )
-                    ).hexdigest()
-                )
-                == hash
-                else True
-            )  # 获取函数源码 去掉第一行装饰器 再获取hash 最后检查计算出来的hash和输入的hash是否一致
+            # 获取函数源码 去掉第一行装饰器 再获取hash 最后检查计算出来的hash和输入的hash是否一致
+            raw_code: list[str] = inspect.getsource(fun).split("\n")[
+                ignore_line:
+            ]  # 一个列表，每一项是源码的每一行
+            ret_check_code: str = hashlib.sha224(
+                bytes("".join(raw_code).encode("utf-8"))
+            ).hexdigest()  # 计算源码的hash值
+
+            if ret_check_code == hash:
+                is_change: bool = False
+            else:
+                is_change = True
+
             if show_hash:
                 print(ret_check_code)
 
